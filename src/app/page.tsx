@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Home() {
   const bingo = 100;
@@ -7,12 +7,31 @@ export default function Home() {
   const rh = 700;
   const lineSpeed = 0.55;
   const [pixelsScrolled, setPixelsScrolled] = useState(bingo);
+  const [angle,setAngle] = useState<number>(0);
+  const timeRef = useRef<NodeJS.Timeout|null>(null);
 
-  useEffect(() => {
-  console.log("pixelsScrolled:", pixelsScrolled);
-}, [pixelsScrolled]);
+//   useEffect(() => {
+//   console.log("pixelsScrolled:", pixelsScrolled);
+// }, [pixelsScrolled]);
 
+  useEffect(()=>{
+    timeRef.current = setTimeout(()=>{
+      setAngle(prev=>(prev>=360?0:prev+1));
+    },10)
 
+    return ()=>{
+      if(timeRef.current){
+        clearTimeout(timeRef.current)
+      }
+    }
+    
+  },[angle])
+
+  const stop = () => {
+    if(timeRef.current){
+      clearTimeout(timeRef.current)
+    }
+  }
   useEffect(() => {
     let ticking = false;
 
@@ -36,7 +55,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-750 flex items-start justify-center bg-zinc-50 dark:bg-black">
+    <div className="min-h-750 flex flex-col items-center gap-10 justify-center bg-zinc-50 dark:bg-black">
       <svg width={1000} height={2000} viewBox="0 0 1000 2000" className="border mt-10">
         <line
           x1={500}
@@ -67,6 +86,30 @@ export default function Home() {
           r={10}
           fill="white"
         />
+      </svg>
+          <button onClick={()=>setAngle(0)} className="p-5 bg-zinc-800">start</button>
+          <button onClick={stop} className="p-5 bg-zinc-800">stop</button>
+      <svg width={500} height={1000} className="border">
+        <g id="head" transform={`rotate(${angle} 250 250)`}>
+          <circle cx={250} cy={250} fill="white" r={10}/>
+          <path id="arm" d="
+            M 240 220
+            C 240 230 260 230 260 220
+            L 252 30
+            L 248 30
+          " fill="white" transform={`rotate(${0} 250 250)`}/>
+          {/* for C , M will be the line start and the last two of C are the line end coordinates , the middle two sets of two are for angle of rotate for start and end respectively */}
+          <use href="#arm" transform={`rotate(${120} 250 250)`} />
+          {/* rotate(angle x-coord y-coord) */}
+          <use href="#arm" transform={`rotate(${240} 250 250)`} />
+        </g>
+
+        <path d="
+          M 255 280
+          L 245 280
+          L 240 800
+          L 260 800
+        " fill="white"/>
       </svg>
     </div>
   );
