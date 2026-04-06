@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import SearchResult from './SearchResult';
 import useDebounce from '../../hooks/useDebounce';
 const MIN_SEARCH_CHARS = 1;
-const SearchBar = ({ nodes = [], onSelectNode, onSetLocation, mode = "search" }) => {
+const SearchBar = ({ nodes = [], floors = [], onSelectNode, onSetLocation, mode = "search" }) => {
   const [query, setQuery] = useState('');
   const debouncedQuery = useDebounce(query, 300);
   const [results, setResults] = useState([]);
@@ -79,8 +79,8 @@ const SearchBar = ({ nodes = [], onSelectNode, onSetLocation, mode = "search" })
                   key={node.nodeId}
                   node={{
                     ...node,
-                    displayName: `${node.name || node.nodeId} (Floor ${
-                      node.coordinates?.floor || "?"
+                    displayName: `${(!node.name || node.name.startsWith("Node")) ? "Location" : node.name} (${
+                      floors.find(f => f.id === node.coordinates?.floor)?.name || "Main Floor"
                     })`,
                   }}
                   onSelect={() => handleSelect(node)}

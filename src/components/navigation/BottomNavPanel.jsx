@@ -70,7 +70,7 @@ const BottomNavPanel = ({
           {displayNodes.map((n, idx) => (
             <React.Fragment key={idx}>
               <span className={idx === displayNodes.length - 1 ? "text-accent" : ""}>
-                {n.name}
+                {(!n.name || n.name.startsWith("Node")) ? `Step ${idx + 1}` : n.name}
               </span>
               {idx < displayNodes.length - 1 && (
                 <svg className="w-3 h-3 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">

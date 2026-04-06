@@ -65,7 +65,7 @@ const MarkerLayer = ({
           visible = true;
         }
 
-        const tooltip = node.name || node.nodeId;
+        const tooltip = (node.name && !node.name.startsWith("Node")) ? node.name : null;
 
         return renderCircle([lat, lng], node.nodeId, {
           color,

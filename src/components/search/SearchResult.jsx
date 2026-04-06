@@ -12,7 +12,11 @@ const SearchResult = ({ node, onSelect, isHighlighted }) => {
       onMouseDown={handlePick}   
       onTouchStart={handlePick}  
     >
-      {node.displayName || node.name || node.nodeId}
+      {(node.displayName && !node.displayName.startsWith("Node")) 
+        ? node.displayName 
+        : (!node.name || node.name.startsWith("Node")) 
+          ? "Location" 
+          : node.name}
     </li>
   );
 };

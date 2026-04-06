@@ -78,17 +78,24 @@ const Home = () => {
     setSearchMode("search");
   };
   const handleDestSelect = (node) => {
-    if (!startNode?.nodeId) return; 
     setEndNode(node);
+    const floorObj = floors.find((f) => f.id === node.floorId);
+    if (floorObj) setCurrentFloor(floorObj);
+
+    if (!startNode?.nodeId) {
+      setIsNavigating(false);
+      setRoute([]);
+      return; 
+    }
+
     const path = findMultiFloorPath(projectSchema, startNode.nodeId, node.nodeId);
     setRoute(path);
     setIsNavigating(true);
+
     const segments = splitPathByFloor(path);
-    const firstSegment = segments.find((seg) => seg.nodes.length > 0);
-    if (firstSegment) {
-      setCurrentFloor(floors.find((f) => f.id === firstSegment.floor));
-      setUserLoc(firstSegment.nodes[0].coordinates);
-      setStartNode(firstSegment.nodes[0]);
+    const currentSeg = segments.find(s => s.floor === currentFloor?.id);
+    if (!currentSeg && segments.length > 0) {
+      setCurrentFloor(floors.find(f => f.id === segments[0].floor));
     }
   };
   const handleResetUserLocation = useCallback(() => {
@@ -111,15 +118,16 @@ const Home = () => {
           
           <SearchBar
             nodes={nodes}
+            floors={floors}
             mode={searchMode}
             onSetLocation={handleSetUserLocation}
             onSelectNode={handleDestSelect}
           />
 
           <div className="flex-1 overflow-y-auto space-y-6 pr-1 scrollbar-hide">
-            <div className="text-lg font-bebas text-gray-500 tracking-[0.2em] border-b border-white/5 pb-2">Nearby Locations</div>
+            <div className="text-lg font-bebas text-gray-500 tracking-[0.2em] border-b border-white/5 pb-2">Nearby Rooms</div>
             <div className="space-y-4">
-              {nodes.filter(n => n.type === "room").slice(0, 8).map(node => (
+              {nodes.filter(n => n.type === "room" && n.name && !n.name.startsWith("Node")).slice(0, 8).map(node => (
                 <div 
                   key={node.nodeId}
                   onClick={() => handleDestSelect(node)}
@@ -130,7 +138,7 @@ const Home = () => {
                     <span className="text-[11px] bg-accent/10 border border-accent/20 text-accent px-3 py-1 rounded-full uppercase font-sans">Open</span>
                   </div>
                   <div className="text-[11px] text-gray-500 mt-1 uppercase tracking-widest font-sans font-semibold">
-                    Floor {node.coordinates.floor.slice(0, 5)} • 0.5 mi
+                    {floors.find(f => f.id === node.coordinates.floor)?.name || "Main Floor"} • 0.5 mi
                   </div>
                 </div>
               ))}
