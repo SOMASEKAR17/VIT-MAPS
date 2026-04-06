@@ -5,6 +5,7 @@ const Map = dynamic(() => import("../../components/map/Map"), { ssr: false });
 import SearchBar from "../../components/search/SearchBar";
 import BottomNavPanel from "../../components/navigation/BottomNavPanel";
 import FloorSelector from "../../components/sidebar/FloorSelector";
+import AlgorithmSelector from "../../components/sidebar/AlgorithmSelector";
 import ResetUserLocation from "../../components/common/ResetUserLocation";
 import SplashScreen from "../../components/splash/SplashScreen";
 import Footer from "../../components/common/Footer";
@@ -23,6 +24,7 @@ const Home = () => {
   const [showSplash, setShowSplash] = useState(true);
   const [isNavigating, setIsNavigating] = useState(false);
   const [searchMode, setSearchMode] = useState("setLocation"); 
+  const [selectedAlgorithm, setSelectedAlgorithm] = useState("dijkstra");
   useEffect(() => {
     const { floors } = projectSchema;
     setFloors(floors);
@@ -88,7 +90,7 @@ const Home = () => {
       return; 
     }
 
-    const path = findMultiFloorPath(projectSchema, startNode.nodeId, node.nodeId);
+    const path = findMultiFloorPath(projectSchema, startNode.nodeId, node.nodeId, selectedAlgorithm);
     setRoute(path);
     setIsNavigating(true);
 
@@ -164,24 +166,17 @@ const Home = () => {
           </div>
 
           <div className="flex-1 overflow-y-auto space-y-6 pr-1 scrollbar-hide">
-            <div className="text-lg font-bebas text-gray-500 tracking-[0.2em] border-b border-white/5 pb-2 uppercase">Nearby Rooms</div>
-            <div className="space-y-4">
-              {nodes.filter(n => n.type === "room" && n.name && !n.name.startsWith("Node")).slice(0, 8).map(node => (
-                <div 
-                  key={node.nodeId}
-                  onClick={() => handleDestSelect(node)}
-                  className={`p-4 rounded-xl bg-card border border-border-custom hover:neon-border transition-all cursor-pointer group ${endNode?.nodeId === node.nodeId ? 'neon-border scale-[1.02]' : ''}`}
-                >
-                  <div className="flex items-center justify-between font-bebas text-xl tracking-wide">
-                    <span className="font-medium text-gray-200 group-hover:text-accent transition-colors">{node.name}</span>
-                    <span className="text-[10px] bg-accent/10 border border-accent/20 text-accent px-3 py-1 rounded-full uppercase font-sans font-bold">Open</span>
-                  </div>
-                  <div className="text-[10px] text-gray-500 mt-1 uppercase tracking-widest font-sans font-bold">
-                    {floors.find(f => f.id === node.coordinates.floor)?.name || "Main Floor"}
-                  </div>
-                </div>
-              ))}
-            </div>
+            <AlgorithmSelector
+              selected={selectedAlgorithm}
+              onChange={(key) => {
+                setSelectedAlgorithm(key);
+                if (startNode?.nodeId && endNode?.nodeId) {
+                  const path = findMultiFloorPath(projectSchema, startNode.nodeId, endNode.nodeId, key);
+                  setRoute(path);
+                  setIsNavigating(true);
+                }
+              }}
+            />
           </div>
         </div>
         

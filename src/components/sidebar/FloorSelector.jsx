@@ -22,10 +22,10 @@ const FloorSelector = ({ floors = [], currentFloor, onChange }) => {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            className="absolute bottom-full right-0 mb-3 bg-surface border border-border-custom rounded-2xl shadow-glass p-2 min-w-[160px] flex flex-col space-y-1"
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            className="absolute top-full right-0 mt-3 bg-surface border-2 border-white/5 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,1)] p-2 min-w-[200px] flex flex-col space-y-1 z-[10001] backdrop-blur-3xl"
           >
             {floors.map((floor) => (
               <button

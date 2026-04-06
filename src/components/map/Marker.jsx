@@ -2,6 +2,7 @@
 import React from "react";
 import { CircleMarker, Tooltip, useMap } from "react-leaflet";
 import { gridToMapCoords } from "../../utils/transformCoords";
+
 const MarkerLayer = ({
   nodes = [],
   userLocation,
@@ -20,9 +21,8 @@ const MarkerLayer = ({
     return () => map.off('zoomend', handleZoom);
   }, [map]);
 
-  if (!nodes.length && !userLocation && !destinationNodeId) return (
-     <CircleMarker center={[0, 0]} radius={50} pathOptions={{ color: 'red' }} />
-  );
+  if (!nodes.length && !userLocation && !destinationNodeId) return null;
+
   const renderCircle = (
     latLng,
     key,
@@ -50,15 +50,13 @@ const MarkerLayer = ({
       )}
     </CircleMarker>
   );
+
   const floorNodes = nodes.filter(
     (n) => String(n.coordinates?.floor || n.floorId).trim().toLowerCase() === String(currentFloorId).trim().toLowerCase()
   );
 
   return (
     <>
-      {nodes.length > 0 && floorNodes.length === 0 && (
-         <CircleMarker center={[500, 500]} radius={100} pathOptions={{ color: 'yellow', fillOpacity: 0.5 }} />
-      )}
       {floorNodes.map((node) => {
         const { lat, lng } = gridToMapCoords({
           ...node.coordinates,
@@ -70,7 +68,7 @@ const MarkerLayer = ({
         
         let color = "#333333";
         let radius = 6;
-        let visible = isRoom; // Force rooms to be visible for testing
+        let visible = isRoom; 
 
         if (isDestination) {
           color = "#00ff9f";
@@ -115,4 +113,5 @@ const MarkerLayer = ({
     </>
   );
 };
+
 export default MarkerLayer;
