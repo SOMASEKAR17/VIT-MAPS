@@ -112,7 +112,6 @@ const Map = ({
         maxZoom={5}
         zoomControl={false}
         doubleClickZoom={false}
-        preferCanvas={true}
         style={{
           width: "100%",
           height: "100%",
