@@ -218,7 +218,7 @@ const Home = () => {
           />
         </div>
 
-        <div className="absolute bottom-24 right-6 z-40">
+        <div className="absolute bottom-24 right-6 z-[10000]">
            <ResetUserLocation onReset={handleResetUserLocation} />
         </div>
 

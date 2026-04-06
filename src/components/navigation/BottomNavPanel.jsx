@@ -17,9 +17,17 @@ const BottomNavPanel = ({
   const currentSegmentIndex = segments.findIndex(seg => String(seg.floor) === String(currentFloor));
   const currentSegment = segments[currentSegmentIndex];
   const overviewNodes = currentSegment?.nodes || [];
-
   let displayNodes = [];
   if (overviewNodes.length > 0) {
+    const isSpecialNode = (n) => {
+      const name = n.name?.toLowerCase() || "";
+      const type = n.type?.toLowerCase() || "";
+      return !name.includes("hallway") && 
+             !name.includes("node") && 
+             type !== "hallway" && 
+             type !== "path";
+    };
+
     if (currentSegmentIndex === 0 && segments.length > 1) {
       const firstNode = overviewNodes[0];
       const stairNode = overviewNodes.find(n => n.name.toLowerCase().includes("stair") || n.name.toLowerCase().includes("lift"));
@@ -29,7 +37,12 @@ const BottomNavPanel = ({
       const lastNode = overviewNodes[overviewNodes.length - 1];
       displayNodes = stairNode ? [stairNode, lastNode] : [lastNode];
     } else {
-      displayNodes = overviewNodes;
+      // Show all named rooms or stairs/lifts, skipping generic hallways
+      displayNodes = overviewNodes.filter(isSpecialNode);
+      // Ensure we at least show the first and last of an interior segment if all are hallways
+      if (displayNodes.length === 0 && overviewNodes.length > 0) {
+        displayNodes = [overviewNodes[0], overviewNodes[overviewNodes.length - 1]];
+      }
     }
   }
 
@@ -43,8 +56,8 @@ const BottomNavPanel = ({
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 50, opacity: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
-        style={{ background: '#121212', opacity: 1 }}
-        className="rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] px-10 py-6 flex items-center justify-between space-x-6 border-2 border-white/10 max-w-3xl mx-auto w-full"
+        style={{ background: '#0a0a0a', opacity: 1 }}
+        className="rounded-full shadow-[0_40px_100px_rgba(0,0,0,1)] px-10 py-6 flex items-center justify-between space-x-6 border border-white/20 max-w-3xl mx-auto w-full backdrop-blur-3xl"
       >
         <div className="flex gap-3">
           {prevSegment && (
