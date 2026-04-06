@@ -109,6 +109,14 @@ const Home = () => {
   const segments = useMemo(() => splitPathByFloor(route), [route]);
   const currentSegment =
     segments.find((seg) => seg.floor === currentFloor?.id)?.nodes || [];
+  const handleMarkerClick = (node) => {
+    if (!startNode) {
+       handleSetUserLocation(node);
+    } else {
+       handleDestSelect(node);
+    }
+  };
+
   if (showSplash) return <SplashScreen />;
   return (
     <div className="flex w-full h-screen bg-background text-foreground overflow-hidden font-sans">
@@ -132,7 +140,7 @@ const Home = () => {
               {startNode && (
                 <div className="mt-2 text-xs text-gray-400 flex items-center gap-2">
                    <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                   <span>Starting from: <b className="text-white">{startNode.name || "Selected Point"}</b></span>
+                   <span>Starting from: <b className="text-white">{(startNode.name && !startNode.name.startsWith("Node")) ? startNode.name : "Location"}</b></span>
                 </div>
               )}
             </div>
@@ -187,6 +195,7 @@ const Home = () => {
           userLocation={userLoc}
           Endnode={endNode?.nodeId}
           onSelectLocation={handleMapClick}
+          onMarkerClick={handleMarkerClick}
           nodes={nodes}
           route={currentSegment}
           currentFloor={currentFloor}

@@ -50,10 +50,11 @@ const MarkerLayer = ({
         });
         const isDestination = node.nodeId === destinationNodeId;
         const isHighlighted = highlightedNodeId === node.nodeId;
+        const isRoom = node.type === "room";
         
         let color = "#333";
         let radius = 5;
-        let visible = false;
+        let visible = isRoom;
 
         if (isDestination) {
           color = "#00ff9f";
@@ -63,6 +64,9 @@ const MarkerLayer = ({
           color = "#ffffff";
           radius = 7;
           visible = true;
+        } else if (isRoom) {
+          color = "rgba(0, 255, 159, 0.4)";
+          radius = 4;
         }
 
         const tooltip = (node.name && !node.name.startsWith("Node")) ? node.name : null;
