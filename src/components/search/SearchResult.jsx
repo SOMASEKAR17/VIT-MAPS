@@ -6,8 +6,8 @@ const SearchResult = ({ node, onSelect, isHighlighted }) => {
   return (
     <li
       className={clsx(
-        'px-4 py-2 cursor-pointer hover:bg-blue-100',
-        isHighlighted && 'bg-blue-100'
+        'px-5 py-3 cursor-pointer transition-colors hover:bg-white/5 text-gray-300',
+        isHighlighted && 'bg-white/10 text-accent font-medium'
       )}
       onMouseDown={handlePick}   
       onTouchStart={handlePick}  

@@ -13,7 +13,7 @@ import MarkerLayer from "./Marker";
 import RoutePolyline from "./RoutePolyline";
 import { floorDimensions } from "../../utils/mapConfig";
 import { mapToGridCoords, clampGridPoint } from "../../utils/transformCoords";
-import academicGround from "../../assets/final maps/PRP/main.svg";
+import academicGround from "../../assets/final maps/PRP/main-compressed.svg";
 const floorImages = {
   "586f40cd-8306-4040-88c9-e3f61b8e098d": academicGround, 
 };
@@ -100,7 +100,7 @@ const Map = ({
     });
   }, [currentFloor, route]);
   return (
-    <div ref={containerRef} className="absolute inset-0 w-full h-full bg-gray-100">
+    <div ref={containerRef} className="absolute inset-0 w-full h-full bg-background">
       <MapContainer
         crs={L.CRS.Simple}
         bounds={bounds}
@@ -113,12 +113,13 @@ const Map = ({
         style={{
           width: "100%",
           height: "100%",
-          background: "white", 
+          background: "#000000", 
         }}
       >
         <ImageOverlay
           url={image.src || image}
           bounds={bounds}
+          className="map-image-filter"
           preserveAspectRatio="xMidYMid meet" 
         />
         <AutoFitImage bounds={bounds} />

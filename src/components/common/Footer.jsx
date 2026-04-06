@@ -22,42 +22,33 @@ const Footer = () => {
   }, []);
   return (
     <>
-      <footer className="fixed bottom-0 left-0 w-full bg-white shadow-inner border-t border-gray-200 py-2.5 px-4 z-50">
-        <div className="flex items-center justify-between text-xs sm:text-sm text-gray-600">
+      <footer className="w-full bg-surface border-t border-border-custom py-4 px-4 overflow-hidden">
+        <div className="flex flex-col gap-2 text-xs text-gray-500">
           <div className="truncate">
             © 2026{" "}
             <span
               onClick={() => setShowHelp(true)}
-              className="font-semibold text-gray-800 cursor-pointer hover:text-blue-600 transition"
-              title="How to Navigate"
+              className="font-bold text-accent cursor-pointer hover:brightness-110 transition font-bruno tracking-wider"
             >
               VIT-MAPS
-            </span>{" "}
-            · Engineered by{" "}
-            <span
-              onClick={() => setShowContact(true)}
-              className="text-gray-800 cursor-pointer hover:text-blue-600 transition"
-              title="Contact Team"
-            >
-              Illuminati Team
-            </span>{" "}
+            </span>
           </div>
-          <div className="flex items-center gap-2 flex-shrink-0">
+          <div className="flex items-center gap-2">
             <button
               onClick={() => setShowHelp(true)}
-              className="flex items-center gap-1 bg-gray-100 hover:bg-gray-200 text-gray-700 px-2.5 py-1 rounded-md text-xs sm:text-sm transition"
+              className="flex-1 flex items-center justify-center gap-2 bg-white/5 border border-border-custom hover:neon-border text-gray-300 py-2 rounded-xl transition text-xs"
             >
               <Info size={14} />
-              <span className="hidden sm:inline">How to Navigate</span>
+              <span>How to Navigate</span>
             </button>
             <a
               href="https://forms.gle/vbZHzFdV8WAhCZEDA"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-1 bg-blue-50 hover:bg-blue-100 text-blue-700 px-2.5 py-1 rounded-md text-xs sm:text-sm transition"
+              className="flex-1 flex items-center justify-center gap-2 bg-white/5 border border-border-custom hover:neon-border text-gray-300 py-2 rounded-xl transition text-xs"
             >
               <MessageSquare size={14} />
-              <span className="hidden sm:inline">Feedback</span>
+              <span>Feedback</span>
             </a>
           </div>
         </div>
@@ -72,7 +63,7 @@ const Footer = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-center mb-3">
-              <h4 className="font-semibold text-gray-800 text-lg">
+              <h4 className="font-bebas text-2xl text-gray-300 tracking-widest">
                 How to Navigate with vitMaps
               </h4>
               <button

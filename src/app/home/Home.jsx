@@ -104,16 +104,46 @@ const Home = () => {
     segments.find((seg) => seg.floor === currentFloor?.id)?.nodes || [];
   if (showSplash) return <SplashScreen />;
   return (
-    <div className="flex flex-col w-full h-screen bg-gray-100 overflow-hidden">
-      <div className="z-50">
-        <SearchBar
-          nodes={nodes}
-          mode={searchMode}
-          onSetLocation={handleSetUserLocation}
-          onSelectNode={handleDestSelect}
-        />
-      </div>
-      <div className="flex-1 relative z-10">
+    <div className="flex w-full h-screen bg-background text-foreground overflow-hidden font-sans">
+      <aside className="w-96 flex flex-col bg-surface border-r border-border-custom z-50 shadow-glass">
+        <div className="p-6 space-y-8 flex flex-col h-full overflow-hidden">
+          <h1 className="text-4xl font-bruno tracking-tighter text-accent neon-glow inline-block">vitMaps</h1>
+          
+          <SearchBar
+            nodes={nodes}
+            mode={searchMode}
+            onSetLocation={handleSetUserLocation}
+            onSelectNode={handleDestSelect}
+          />
+
+          <div className="flex-1 overflow-y-auto space-y-6 pr-1 scrollbar-hide">
+            <div className="text-lg font-bebas text-gray-500 tracking-[0.2em] border-b border-white/5 pb-2">Nearby Locations</div>
+            <div className="space-y-4">
+              {nodes.filter(n => n.type === "room").slice(0, 8).map(node => (
+                <div 
+                  key={node.nodeId}
+                  onClick={() => handleDestSelect(node)}
+                  className={`p-4 rounded-lg bg-card border border-border-custom hover:neon-border transition-all cursor-pointer group ${endNode?.nodeId === node.nodeId ? 'neon-border' : ''}`}
+                >
+                  <div className="flex items-center justify-between font-bebas text-xl tracking-wide">
+                    <span className="font-medium">{node.name}</span>
+                    <span className="text-[11px] bg-accent/10 border border-accent/20 text-accent px-3 py-1 rounded-full uppercase font-sans">Open</span>
+                  </div>
+                  <div className="text-[11px] text-gray-500 mt-1 uppercase tracking-widest font-sans font-semibold">
+                    Floor {node.coordinates.floor.slice(0, 5)} • 0.5 mi
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        
+        <div className="mt-auto p-4 border-t border-border-custom">
+            <Footer />
+        </div>
+      </aside>
+
+      <main className="flex-1 relative z-10 bg-[#0a0a0a]">
         <Map
           userLocation={userLoc}
           Endnode={endNode?.nodeId}
@@ -122,44 +152,50 @@ const Home = () => {
           route={currentSegment}
           currentFloor={currentFloor}
         />
-      </div>
-      <div className="z-20 relative">
-        <ResetUserLocation onReset={handleResetUserLocation} />
-        <BottomNavPanel
-          route={route}
-          destination={endNode}
-          isNavigating={isNavigating}
-          loading={false}
-          currentFloor={currentFloor?.id}
-          floors={floors}
-          onFloorChange={(nextFloorId) => {
-            const floorObj = floors.find((f) => f.id === nextFloorId);
-            if (!floorObj) return;
-            setCurrentFloor(floorObj);
-            const seg = segments.find((s) => s.floor === nextFloorId);
-            if (isNavigating && seg && seg.nodes.length > 0) {
-              const stairNode = seg.nodes[0];
-              setStartNode(stairNode);
-              setUserLoc(stairNode.coordinates);
-            }
-          }}
-        />
-        <FloorSelector
-          floors={floors}
-          currentFloor={currentFloor}
-          onChange={(next) => {
-            if (!next || next.id === currentFloor?.id) return;
-            setCurrentFloor(next);
-            const seg = segments.find((s) => s.floor === next.id);
-            if (isNavigating && seg && seg.nodes.length > 0) {
-              const stairNode = seg.nodes[0];
-              setStartNode(stairNode);
-              setUserLoc(stairNode.coordinates);
-            }
-          }}
-        />
-      </div>
-      <Footer />
+
+        <div className="absolute top-6 right-6 z-40 space-y-4">
+           <FloorSelector
+            floors={floors}
+            currentFloor={currentFloor}
+            onChange={(next) => {
+              if (!next || next.id === currentFloor?.id) return;
+              setCurrentFloor(next);
+              const seg = segments.find((s) => s.floor === next.id);
+              if (isNavigating && seg && seg.nodes.length > 0) {
+                const stairNode = seg.nodes[0];
+                setStartNode(stairNode);
+                setUserLoc(stairNode.coordinates);
+              }
+            }}
+          />
+        </div>
+
+        <div className="absolute bottom-24 right-6 z-40">
+           <ResetUserLocation onReset={handleResetUserLocation} />
+        </div>
+
+        <div className="absolute bottom-6 left-6 right-6 z-40">
+          <BottomNavPanel
+            route={route}
+            destination={endNode}
+            isNavigating={isNavigating}
+            loading={false}
+            currentFloor={currentFloor?.id}
+            floors={floors}
+            onFloorChange={(nextFloorId) => {
+              const floorObj = floors.find((f) => f.id === nextFloorId);
+              if (!floorObj) return;
+              setCurrentFloor(floorObj);
+              const seg = segments.find((s) => s.floor === nextFloorId);
+              if (isNavigating && seg && seg.nodes.length > 0) {
+                const stairNode = seg.nodes[0];
+                setStartNode(stairNode);
+                setUserLoc(stairNode.coordinates);
+              }
+            }}
+          />
+        </div>
+      </main>
     </div>
   );
 };

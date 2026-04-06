@@ -8,29 +8,33 @@ const FloorSelector = ({ floors = [], currentFloor, onChange }) => {
     setOpen(false);
   };
   return (
-    <div className="absolute bottom-38 right-4 z-40">
+    <div className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="bg-blue-600 text-white text-sm px-4 py-2 rounded-xl shadow-lg backdrop-blur hover:bg-blue-700 transition-all"
+        className="glass text-white text-sm px-5 py-3 rounded-full shadow-glass hover:neon-border transition-all flex items-center gap-2"
       >
-        Floor: {currentFloor?.name || "Select"} ⌄
+        <span>Floor: {currentFloor?.name || "Select"}</span>
+        <svg className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
       </button>
+
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            className="mt-2 bg-white text-black rounded-xl shadow-xl p-2 flex flex-col space-y-1"
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+            className="absolute bottom-full right-0 mb-3 bg-surface border border-border-custom rounded-2xl shadow-glass p-2 min-w-[160px] flex flex-col space-y-1"
           >
             {floors.map((floor) => (
               <button
                 key={floor.id}
                 onClick={() => handleSelect(floor)}
-                className={`px-4 py-2 rounded-lg text-sm ${
+                className={`px-4 py-2.5 rounded-xl text-left text-sm transition-all ${
                   floor.id === currentFloor?.id
-                    ? "bg-blue-500 text-white"
-                    : "hover:bg-gray-100"
+                    ? "bg-accent/20 text-accent font-medium"
+                    : "text-gray-300 hover:bg-white/5"
                 }`}
               >
                 {floor.name}

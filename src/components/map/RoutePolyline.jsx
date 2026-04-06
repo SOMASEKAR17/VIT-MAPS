@@ -13,7 +13,12 @@ const RoutePolyline = ({ route = [], currentFloor }) => {
       const { lat, lng } = gridToMapCoords({ ...n.coordinates, floor: currentFloor });
       return [lat, lng];
     });
-    const polyline = L.polyline(latlngs, { color: "#0ea5e9", weight: 3 }).addTo(map);
+    const polyline = L.polyline(latlngs, { 
+      color: "#00ff9f", 
+      weight: 4,
+      opacity: 0.8,
+      className: 'neon-glow-line' 
+    }).addTo(map);
     return () => {
       map.removeLayer(polyline);
     };

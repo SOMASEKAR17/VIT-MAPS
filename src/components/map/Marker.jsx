@@ -40,6 +40,7 @@ const MarkerLayer = ({
   const floorNodes = nodes.filter(
     (n) => String(n.coordinates.floor) === String(currentFloorId)
   );
+
   return (
     <>
       {floorNodes.map((node) => {
@@ -49,20 +50,30 @@ const MarkerLayer = ({
         });
         const isDestination = node.nodeId === destinationNodeId;
         const isHighlighted = highlightedNodeId === node.nodeId;
-        const isSelected = selectedNodeId === node.nodeId;
+        
         let color = "#333";
-        if (isDestination) color = "#00D100";
-        else if (isHighlighted) color = "limegreen";
-        else if (isSelected) color = "red";
-        const tooltip =
-          node.type === "room" || isDestination ? node.name : null;
+        let radius = 5;
+        let visible = false;
+
+        if (isDestination) {
+          color = "#00ff9f";
+          radius = 10;
+          visible = true;
+        } else if (isHighlighted) {
+          color = "#ffffff";
+          radius = 7;
+          visible = true;
+        }
+
+        const tooltip = node.name || node.nodeId;
+
         return renderCircle([lat, lng], node.nodeId, {
           color,
-          radius: isDestination ? 9 : 6,
+          radius,
           tooltip,
           onClick: () => onMarkerClick?.(node),
-          visible: isDestination, 
-          dashArray: isDestination ? "4 2" : undefined, 
+          visible,
+          dashArray: isDestination ? "5 5" : undefined,
         });
       })}
       {userLocation &&
@@ -73,9 +84,9 @@ const MarkerLayer = ({
             floor: currentFloorId,
           });
           return renderCircle([lat, lng], "user-dot", {
-            color: "#00D100",
-            radius: 7,
-            tooltip: "You",
+            color: "#00ff9f",
+            radius: 8,
+            tooltip: "My Location",
             visible: true,
           });
         })()}
