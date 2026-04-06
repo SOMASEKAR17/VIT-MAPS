@@ -104,6 +104,8 @@ const Map = ({
       <MapContainer
         crs={L.CRS.Simple}
         bounds={bounds}
+        maxBounds={bounds}
+        maxBoundsViscosity={1.0}
         center={[height / 2, width / 2]}
         zoom={-1}
         minZoom={-1}
