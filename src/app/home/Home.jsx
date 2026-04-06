@@ -114,31 +114,62 @@ const Home = () => {
     <div className="flex w-full h-screen bg-background text-foreground overflow-hidden font-sans">
       <aside className="w-96 flex flex-col bg-surface border-r border-border-custom z-50 shadow-glass">
         <div className="p-6 space-y-8 flex flex-col h-full overflow-hidden">
-          <h1 className="text-4xl font-bruno tracking-tighter text-accent neon-glow inline-block">vitMaps</h1>
+          <div className="space-y-1">
+            <h1 className="text-4xl font-bruno tracking-tighter text-accent inline-block">vitMaps</h1>
+            <div className="text-[10px] font-bebas tracking-[0.3em] text-gray-500 uppercase">Indoor Navigation Suite</div>
+          </div>
           
-          <SearchBar
-            nodes={nodes}
-            floors={floors}
-            mode={searchMode}
-            onSetLocation={handleSetUserLocation}
-            onSelectNode={handleDestSelect}
-          />
+          <div className="space-y-4">
+            <div className={`p-3 rounded-2xl border transition-all ${searchMode === 'setLocation' ? 'bg-accent/10 border-accent/30' : 'bg-white/5 border-white/5 opacity-60'}`}>
+              <div className="text-[10px] font-bebas tracking-widest text-accent mb-2">Step 1: Set Your Location</div>
+              <SearchBar
+                nodes={nodes}
+                floors={floors}
+                mode="setLocation"
+                onSetLocation={handleSetUserLocation}
+                onSelectNode={handleDestSelect}
+              />
+              {startNode && (
+                <div className="mt-2 text-xs text-gray-400 flex items-center gap-2">
+                   <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                   <span>Starting from: <b className="text-white">{startNode.name || "Selected Point"}</b></span>
+                </div>
+              )}
+            </div>
+
+            <div className={`p-3 rounded-2xl border transition-all ${searchMode === 'search' ? 'bg-accent/10 border-accent/30' : 'bg-white/5 border-white/5 opacity-60'}`}>
+              <div className="text-[10px] font-bebas tracking-widest text-accent mb-2">Step 2: Find Your Room</div>
+              <SearchBar
+                nodes={nodes}
+                floors={floors}
+                mode="search"
+                onSetLocation={handleSetUserLocation}
+                onSelectNode={handleDestSelect}
+              />
+              {endNode && (
+                <div className="mt-2 text-xs text-gray-400 flex items-center gap-2">
+                   <div className="w-2 h-2 rounded-full bg-accent" />
+                   <span>Going to: <b className="text-white">{endNode.name}</b></span>
+                </div>
+              )}
+            </div>
+          </div>
 
           <div className="flex-1 overflow-y-auto space-y-6 pr-1 scrollbar-hide">
-            <div className="text-lg font-bebas text-gray-500 tracking-[0.2em] border-b border-white/5 pb-2">Nearby Rooms</div>
+            <div className="text-lg font-bebas text-gray-500 tracking-[0.2em] border-b border-white/5 pb-2 uppercase">Nearby Rooms</div>
             <div className="space-y-4">
               {nodes.filter(n => n.type === "room" && n.name && !n.name.startsWith("Node")).slice(0, 8).map(node => (
                 <div 
                   key={node.nodeId}
                   onClick={() => handleDestSelect(node)}
-                  className={`p-4 rounded-lg bg-card border border-border-custom hover:neon-border transition-all cursor-pointer group ${endNode?.nodeId === node.nodeId ? 'neon-border' : ''}`}
+                  className={`p-4 rounded-xl bg-card border border-border-custom hover:neon-border transition-all cursor-pointer group ${endNode?.nodeId === node.nodeId ? 'neon-border scale-[1.02]' : ''}`}
                 >
                   <div className="flex items-center justify-between font-bebas text-xl tracking-wide">
-                    <span className="font-medium">{node.name}</span>
-                    <span className="text-[11px] bg-accent/10 border border-accent/20 text-accent px-3 py-1 rounded-full uppercase font-sans">Open</span>
+                    <span className="font-medium text-gray-200 group-hover:text-accent transition-colors">{node.name}</span>
+                    <span className="text-[10px] bg-accent/10 border border-accent/20 text-accent px-3 py-1 rounded-full uppercase font-sans font-bold">Open</span>
                   </div>
-                  <div className="text-[11px] text-gray-500 mt-1 uppercase tracking-widest font-sans font-semibold">
-                    {floors.find(f => f.id === node.coordinates.floor)?.name || "Main Floor"} • 0.5 mi
+                  <div className="text-[10px] text-gray-500 mt-1 uppercase tracking-widest font-sans font-bold">
+                    {floors.find(f => f.id === node.coordinates.floor)?.name || "Main Floor"}
                   </div>
                 </div>
               ))}

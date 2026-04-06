@@ -75,21 +75,20 @@ const Footer = () => {
             </div>
             <ul className="list-disc list-inside space-y-2 text-[14px] leading-relaxed">
               <li>
-                <span className="font-medium">Set Your Start:</span> Double-tap your
-                location on the map or search your nearest location in the search bar
-                to drop the{" "}
-                <span className="text-green-600 font-semibold">green starting pin</span>.
+                <span className="font-medium">Step 1: Set Your Start:</span> Look for the 
+                <span className="text-accent font-semibold ml-1">"Set Your Location"</span> box. 
+                Search for your current room or tap anywhere on the map to drop your 
+                <span className="text-accent font-semibold ml-1">starting pin</span>.
               </li>
               <li>
-                <span className="font-medium">Find Your Destination:</span> Use the
-                top search bar to type your destination (e.g.,{" "}
-                <span className="italic">Library</span> or{" "}
-                <span className="italic">Room 301</span>).
+                <span className="font-medium">Step 2: Find Your Destination:</span> Once your start is set, 
+                the <span className="text-accent font-semibold ml-1">"Find Your Room"</span> box will activate. 
+                Search for where you want to go.
               </li>
               <li>
-                <span className="font-medium">Select & Go:</span> Pick your destination
-                — your route appears as a{" "}
-                <span className="text-blue-600 font-semibold">blue line</span>.
+                <span className="font-medium">Navigate:</span> Your route will appear as a 
+                <span className="text-accent font-semibold ml-1">glowing neon path</span>. 
+                Follow the arrows in the navigation panel.
               </li>
             </ul>
             <div className="mt-3 border-t border-gray-200 pt-2">
