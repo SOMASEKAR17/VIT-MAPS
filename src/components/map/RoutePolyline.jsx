@@ -15,8 +15,9 @@ const RoutePolyline = ({ route = [], currentFloor }) => {
     });
     const polyline = L.polyline(latlngs, { 
       color: "#00ff9f", 
-      weight: 4,
-      opacity: 0.8,
+      weight: 6,
+      opacity: 0.9,
+      smoothFactor: 2.0, 
       className: 'neon-glow-line' 
     }).addTo(map);
     return () => {

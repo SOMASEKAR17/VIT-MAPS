@@ -201,7 +201,7 @@ const Home = () => {
           currentFloor={currentFloor}
         />
 
-        <div className="absolute top-6 right-6 z-40 space-y-4">
+        <div className="absolute top-6 right-6 z-[10000] space-y-4">
            <FloorSelector
             floors={floors}
             currentFloor={currentFloor}
@@ -222,7 +222,7 @@ const Home = () => {
            <ResetUserLocation onReset={handleResetUserLocation} />
         </div>
 
-        <div className="absolute bottom-6 left-6 right-6 z-40">
+        <div className="absolute bottom-6 left-6 right-6 z-[10000]">
           <BottomNavPanel
             route={route}
             destination={endNode}

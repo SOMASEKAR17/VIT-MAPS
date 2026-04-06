@@ -22,9 +22,9 @@ const BottomNavPanel = ({
     const isSpecialNode = (n) => {
       const name = n.name?.toLowerCase() || "";
       const type = n.type?.toLowerCase() || "";
-      return !name.includes("hallway") && 
-             !name.includes("node") && 
-             type !== "hallway" && 
+      return !name.includes("hallway") &&
+             !name.includes("node") &&
+             type !== "hallway" &&
              type !== "path";
     };
 
@@ -37,9 +37,7 @@ const BottomNavPanel = ({
       const lastNode = overviewNodes[overviewNodes.length - 1];
       displayNodes = stairNode ? [stairNode, lastNode] : [lastNode];
     } else {
-      // Show all named rooms or stairs/lifts, skipping generic hallways
       displayNodes = overviewNodes.filter(isSpecialNode);
-      // Ensure we at least show the first and last of an interior segment if all are hallways
       if (displayNodes.length === 0 && overviewNodes.length > 0) {
         displayNodes = [overviewNodes[0], overviewNodes[overviewNodes.length - 1]];
       }
@@ -56,43 +54,47 @@ const BottomNavPanel = ({
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 50, opacity: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
-        style={{ background: '#0a0a0a', opacity: 1 }}
-        className="rounded-full shadow-[0_40px_100px_rgba(0,0,0,1)] px-10 py-6 flex items-center justify-between space-x-6 border border-white/20 max-w-3xl mx-auto w-full backdrop-blur-3xl"
+        className="max-w-3xl mx-auto w-full relative z-[9999]"
       >
-        <div className="flex gap-3">
-          {prevSegment && (
-            <button
-              onClick={() => onFloorChange(prevSegment.floor)}
-              className="bg-white/5 border border-border-custom text-white px-4 py-2 rounded-xl hover:neon-border transition-all text-sm flex items-center gap-2"
-            >
-              <span>⏪</span>
-              <span className="hidden sm:inline font-medium">{getFloorName(prevSegment.floor)}</span>
-            </button>
-          )}
-          {nextSegment && (
-            <button
-              onClick={() => onFloorChange(nextSegment.floor)}
-              className="bg-accent/20 border border-accent/30 text-accent px-4 py-2 rounded-xl hover:bg-accent hover:text-black transition-all text-sm font-semibold flex items-center gap-2"
-            >
-              <span>⏩</span>
-              <span className="hidden sm:inline">{getFloorName(nextSegment.floor)}</span>
-            </button>
-          )}
-        </div>
+        <div
+          className="rounded-full px-10 py-6 flex items-center justify-between space-x-6 border-2 border-white/20 shadow-[0_30px_100px_rgba(0,0,0,1)]"
+          style={{ backgroundColor: '#050505' }}
+        >
+          <div className="flex gap-3">
+            {prevSegment && (
+              <button
+                onClick={() => onFloorChange(prevSegment.floor)}
+                className="bg-white/5 border border-border-custom text-white px-4 py-2 rounded-xl hover:neon-border transition-all text-sm flex items-center gap-2"
+              >
+                <span>⏪</span>
+                <span className="hidden sm:inline font-medium">{getFloorName(prevSegment.floor)}</span>
+              </button>
+            )}
+            {nextSegment && (
+              <button
+                onClick={() => onFloorChange(nextSegment.floor)}
+                className="bg-accent/20 border border-accent/30 text-accent px-4 py-2 rounded-xl hover:bg-accent hover:text-black transition-all text-sm font-semibold flex items-center gap-2"
+              >
+                <span>⏩</span>
+                <span className="hidden sm:inline">{getFloorName(nextSegment.floor)}</span>
+              </button>
+            )}
+          </div>
 
-        <div className="flex-1 flex flex-wrap justify-center items-center gap-3 text-[15px] text-white font-bold tracking-wide">
-          {displayNodes.map((n, idx) => (
-            <React.Fragment key={idx}>
-              <span className={idx === displayNodes.length - 1 ? "text-accent" : ""}>
-                {(!n.name || n.name.startsWith("Node")) ? `Step ${idx + 1}` : n.name}
-              </span>
-              {idx < displayNodes.length - 1 && (
-                <svg className="w-4 h-4 text-accent/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M9 5l7 7-7 7" />
-                </svg>
-              )}
-            </React.Fragment>
-          ))}
+          <div className="flex-1 flex flex-wrap justify-center items-center gap-3 text-[15px] text-white font-bold tracking-wide">
+            {displayNodes.map((n, idx) => (
+              <React.Fragment key={idx}>
+                <span className={idx === displayNodes.length - 1 ? "text-accent" : ""}>
+                  {(!n.name || n.name.startsWith("Node")) ? `Step ${idx + 1}` : n.name}
+                </span>
+                {idx < displayNodes.length - 1 && (
+                  <svg className="w-4 h-4 text-accent/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M9 5l7 7-7 7" />
+                  </svg>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
         </div>
       </motion.div>
     </AnimatePresence>

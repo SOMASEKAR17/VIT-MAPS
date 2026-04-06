@@ -11,6 +11,15 @@ const MarkerLayer = ({
   highlightedNodeId,
   destinationNodeId, 
 }) => {
+  const map = useMap();
+  const [zoom, setZoom] = React.useState(map.getZoom());
+
+  React.useEffect(() => {
+    const handleZoom = () => setZoom(map.getZoom());
+    map.on('zoomend', handleZoom);
+    return () => map.off('zoomend', handleZoom);
+  }, [map]);
+
   if (!nodes.length && !userLocation && !destinationNodeId) return null;
   const renderCircle = (
     latLng,
@@ -21,17 +30,18 @@ const MarkerLayer = ({
       key={key}
       center={latLng}
       radius={radius}
+      interactive={!!onClick}
       pathOptions={{
         color,
         fillColor: color,
         dashArray,
         opacity: visible ? 1 : 0,
-        fillOpacity: visible ? 0.9 : 0,
+        fillOpacity: visible ? 0.7 : 0,
       }}
       eventHandlers={onClick ? { click: onClick } : {}}
     >
-      {tooltip && (
-        <Tooltip direction="top" offset={[0, -8]} opacity={1}>
+      {tooltip && visible && (
+        <Tooltip direction="top" offset={[0, -8]} sticky={true} opacity={1}>
           {tooltip}
         </Tooltip>
       )}
@@ -52,9 +62,9 @@ const MarkerLayer = ({
         const isHighlighted = highlightedNodeId === node.nodeId;
         const isRoom = node.type === "room";
         
-        let color = "#333";
+        let color = "#333333";
         let radius = 5;
-        let visible = isRoom;
+        let visible = isRoom && zoom >= 1; // Only show room markers at higher zoom
 
         if (isDestination) {
           color = "#00ff9f";
@@ -65,7 +75,7 @@ const MarkerLayer = ({
           radius = 7;
           visible = true;
         } else if (isRoom) {
-          color = "rgba(0, 255, 159, 0.4)";
+          color = "#00ff9f55"; // Using HEX with alpha for better performance
           radius = 4;
         }
 
