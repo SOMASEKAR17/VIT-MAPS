@@ -95,3 +95,22 @@ export function findMultiFloorPath(projectSchema, startId, endId, algorithmKey =
   console.log(`🏁 [Refined ${ALGORITHMS[algorithmKey]?.name || "Dijkstra"} Route]`, refinedPath.map(n => n.name));
   return refinedPath;
 }
+
+/**
+ * Runs every registered algorithm and returns benchmark results.
+ * Returns: { [algorithmKey]: { timeMs, pathLength, path } }
+ */
+export function benchmarkAllAlgorithms(projectSchema, startId, endId) {
+  const results = {};
+  for (const key of Object.keys(ALGORITHMS)) {
+    const t0 = performance.now();
+    const path = findMultiFloorPath(projectSchema, startId, endId, key);
+    const t1 = performance.now();
+    results[key] = {
+      timeMs: parseFloat((t1 - t0).toFixed(3)),
+      pathLength: path.length,
+      path,
+    };
+  }
+  return results;
+}

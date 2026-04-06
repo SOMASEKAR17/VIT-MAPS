@@ -12,7 +12,7 @@ import Footer from "../../components/common/Footer";
 import projectSchema from "../../data/project-schema-final.json";
 import { distanceSq } from "../../utils/math";
 import { splitPathByFloor } from "../../utils/splitPathByFloor";
-import { findMultiFloorPath } from "../../utils/multiFloorRoute";
+import { findMultiFloorPath, benchmarkAllAlgorithms } from "../../utils/multiFloorRoute";
 const Home = () => {
   const [nodes, setNodes] = useState([]);
   const [floors, setFloors] = useState([]);
@@ -25,6 +25,7 @@ const Home = () => {
   const [isNavigating, setIsNavigating] = useState(false);
   const [searchMode, setSearchMode] = useState("setLocation"); 
   const [selectedAlgorithm, setSelectedAlgorithm] = useState("dijkstra");
+  const [benchmarks, setBenchmarks] = useState({});
   useEffect(() => {
     const { floors } = projectSchema;
     setFloors(floors);
@@ -87,10 +88,16 @@ const Home = () => {
     if (!startNode?.nodeId) {
       setIsNavigating(false);
       setRoute([]);
+      setBenchmarks({});
       return; 
     }
 
-    const path = findMultiFloorPath(projectSchema, startNode.nodeId, node.nodeId, selectedAlgorithm);
+    // Run ALL algorithms and benchmark them
+    const results = benchmarkAllAlgorithms(projectSchema, startNode.nodeId, node.nodeId);
+    setBenchmarks(results);
+
+    // Use selected algorithm's path for the map
+    const path = results[selectedAlgorithm]?.path || [];
     setRoute(path);
     setIsNavigating(true);
 
@@ -106,6 +113,7 @@ const Home = () => {
     setEndNode(null);
     setRoute([]);
     setIsNavigating(false);
+    setBenchmarks({});
     setSearchMode("setLocation"); 
   }, []);
   const segments = useMemo(() => splitPathByFloor(route), [route]);
@@ -168,11 +176,12 @@ const Home = () => {
           <div className="flex-1 overflow-y-auto space-y-6 pr-1 scrollbar-hide">
             <AlgorithmSelector
               selected={selectedAlgorithm}
+              benchmarks={benchmarks}
               onChange={(key) => {
                 setSelectedAlgorithm(key);
-                if (startNode?.nodeId && endNode?.nodeId) {
-                  const path = findMultiFloorPath(projectSchema, startNode.nodeId, endNode.nodeId, key);
-                  setRoute(path);
+                // Use the pre-computed path from the benchmark cache
+                if (benchmarks[key]?.path) {
+                  setRoute(benchmarks[key].path);
                   setIsNavigating(true);
                 }
               }}
