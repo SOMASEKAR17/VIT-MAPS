@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Flag, ArrowUpDown, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
 import { splitPathByFloor } from "../../utils/splitPathByFloor";
@@ -13,6 +13,12 @@ const BottomNavPanel = ({
   startNode,
   endNode,
 }) => {
+  const [isMinimized, setIsMinimized] = useState(false);
+
+  useEffect(() => {
+    setIsMinimized(false);
+  }, [route]);
+
   if (!isNavigating || route.length === 0) return null;
 
   const getFloorName = (id) => floors.find(f => String(f.id) === String(id))?.name || `Floor ${id}`;
@@ -45,11 +51,8 @@ const BottomNavPanel = ({
   const nextSegment = segments[currentSegmentIndex + 1];
   const prevSegment = segments[currentSegmentIndex - 1];
 
-  // Determine what to show for the current floor segment
-  const transitionOut = findTransitionNode(currentNodes, "end"); // stair/elevator to leave this floor
-  const transitionIn = findTransitionNode(currentNodes, "start"); // stair/elevator entering this floor
-
-  // Build the display steps
+  const transitionOut = findTransitionNode(currentNodes, "end");
+  const transitionIn = findTransitionNode(currentNodes, "start");
   const steps = [];
 
   if (isMultiFloor) {
@@ -57,7 +60,6 @@ const BottomNavPanel = ({
     const isLastSegment = currentSegmentIndex === segments.length - 1;
 
     if (isFirstSegment) {
-      // First floor: Start → ... → Elevator/Stair
       steps.push({
         label: startNode?.name || "Start",
         icon: <MapPin className="w-4 h-4" />,
@@ -74,7 +76,6 @@ const BottomNavPanel = ({
         });
       }
     } else if (isLastSegment) {
-      // Last floor: Elevator/Stair → ... → Destination
       if (transitionIn) {
         const isElevator = transitionIn.type?.toLowerCase() === "elevator" ||
                            transitionIn.name?.toLowerCase().includes("elevator") ||
@@ -91,7 +92,6 @@ const BottomNavPanel = ({
         type: "end",
       });
     } else {
-      // Middle floor: Stair/Elevator → ... → Stair/Elevator
       if (transitionIn) {
         const isElevator = transitionIn.type?.toLowerCase() === "elevator" ||
                            transitionIn.name?.toLowerCase().includes("elevator");
@@ -112,7 +112,6 @@ const BottomNavPanel = ({
       }
     }
   } else {
-    // Single floor: just show Start → Destination
     steps.push({
       label: startNode?.name || "Start",
       icon: <MapPin className="w-4 h-4" />,
@@ -128,16 +127,36 @@ const BottomNavPanel = ({
   return (
     <AnimatePresence>
       <motion.div
+        drag="y"
+        dragConstraints={{ top: 0 }}
+        dragElastic={0.2}
+        onDragEnd={(e, info) => {
+          if (info.offset.y > 50 || info.velocity.y > 200) {
+            setIsMinimized(true);
+          } else if (info.offset.y < -20 || info.velocity.y < -200) {
+            setIsMinimized(false);
+          }
+        }}
         initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        animate={{ 
+          y: isMinimized ? "calc(100% - 24px)" : 0, 
+          opacity: 1 
+        }}
         exit={{ y: 50, opacity: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
-        className="max-w-4xl mx-auto w-full relative z-[9999]"
+        className="max-w-4xl mx-auto w-full relative z-[9999] touch-none md:touch-auto"
       >
         <div
-          className="rounded-2xl md:rounded-3xl px-3 md:px-6 py-3 md:py-5 border-2 border-white/10 shadow-[0_30px_100px_rgba(0,0,0,1)]"
+          className="rounded-t-3xl md:rounded-3xl px-3 md:px-6 pb-4 md:pb-5 pt-2 md:pt-5 border-2 border-white/10 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] md:shadow-[0_30px_100px_rgba(0,0,0,1)] flex flex-col items-center"
           style={{ backgroundColor: '#0a0a0a' }}
         >
+          <div 
+            className="w-full flex justify-center pb-3 pt-1 md:hidden cursor-pointer"
+            onClick={() => setIsMinimized(!isMinimized)}
+          >
+            <div className="w-12 h-1.5 bg-white/20 hover:bg-white/40 transition-colors rounded-full" />
+          </div>
+
           <div className="flex flex-col md:flex-row items-center gap-3 md:gap-4 w-full">
             <div className="flex-shrink-0 w-full md:w-auto flex justify-between md:block order-2 md:order-1">
               {prevSegment ? (
