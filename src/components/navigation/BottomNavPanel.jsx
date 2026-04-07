@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, Flag, ArrowUpDown, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { MapPin, Flag, ArrowUpDown, TrendingUp, ChevronLeft, ChevronRight, RefreshCw } from "lucide-react";
 import { splitPathByFloor } from "../../utils/splitPathByFloor";
 
 const BottomNavPanel = ({
@@ -12,6 +12,7 @@ const BottomNavPanel = ({
   onFloorChange,
   startNode,
   endNode,
+  onResetLocation,
 }) => {
   const [isMinimized, setIsMinimized] = useState(false);
 
@@ -19,7 +20,8 @@ const BottomNavPanel = ({
     setIsMinimized(false);
   }, [route]);
 
-  if (!isNavigating || route.length === 0) return null;
+  const hasRoute = isNavigating && route.length > 0;
+  if (!startNode && !hasRoute) return null;
 
   const getFloorName = (id) => floors.find(f => String(f.id) === String(id))?.name || `Floor ${id}`;
   const segments = splitPathByFloor(route);
@@ -117,11 +119,20 @@ const BottomNavPanel = ({
       icon: <MapPin className="w-4 h-4" />,
       type: "start",
     });
-    steps.push({
-      label: endNode?.name || "Destination",
-      icon: <Flag className="w-4 h-4" />,
-      type: "end",
-    });
+    
+    if (endNode) {
+      steps.push({
+        label: endNode?.name || "Destination",
+        icon: <Flag className="w-4 h-4" />,
+        type: "end",
+      });
+    } else {
+      steps.push({
+        label: "Select Destination",
+        icon: <Flag className="w-4 h-4 opacity-50" />,
+        type: "end",
+      });
+    }
   }
 
   return (
@@ -209,7 +220,18 @@ const BottomNavPanel = ({
                   <span className="hidden sm:inline">{getFloorName(nextSegment.floor)}</span>
                   <ChevronRight className="w-4 h-4" />
                 </button>
-              ) : <div className="w-10" />}
+              ) : <div className="w-auto" />}
+            </div>
+
+            {/* Reset Location Button */}
+            <div className="flex-shrink-0 flex order-4 absolute right-4 top-4 md:relative md:right-0 md:top-0">
+               <button 
+                  onClick={onResetLocation}
+                  className="p-2 md:p-2.5 bg-white/5 border border-white/10 hover:bg-red-500/20 hover:text-red-400 hover:border-red-500/30 text-white rounded-xl transition-all"
+                  title="Reset Navigation"
+               >
+                  <RefreshCw className="w-4 h-4 md:w-5 md:h-5" />
+               </button>
             </div>
           </div>
 

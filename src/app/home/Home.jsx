@@ -332,14 +332,6 @@ const Home = () => {
           />
         </div>
 
-        <div className={`absolute right-4 md:bottom-24 md:right-6 z-[10000] transition-all duration-300 ${
-           isMobile 
-             ? (sidebarState === "minimized" ? "bottom-[140px]" : sidebarState === "half" ? "bottom-[calc(55dvh+100px)]" : "bottom-[100dvh]") 
-             : "bottom-20"
-        }`}>
-           <ResetUserLocation onReset={handleResetUserLocation} />
-        </div>
-
         <div className={`absolute left-4 right-4 md:left-6 md:right-6 z-[10000] transition-all duration-300 ${
            isMobile 
              ? (sidebarState === "minimized" ? "bottom-[56px]" : sidebarState === "half" ? "bottom-[calc(55dvh+16px)]" : "bottom-[100dvh]") 
@@ -353,6 +345,7 @@ const Home = () => {
             loading={false}
             currentFloor={currentFloor?.id}
             floors={floors}
+            onResetLocation={handleResetUserLocation}
             onFloorChange={(nextFloorId) => {
               const floorObj = floors.find((f) => f.id === nextFloorId);
               if (!floorObj) return;

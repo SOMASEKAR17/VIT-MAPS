@@ -113,7 +113,7 @@ const Map = ({
     });
   }, []);
   return (
-    <div ref={containerRef} className="absolute inset-0 w-full h-full bg-background">
+    <div ref={containerRef} className="absolute inset-0 w-full h-full bg-background z-0">
       <MapContainer
         crs={L.CRS.Simple}
         bounds={bounds}
