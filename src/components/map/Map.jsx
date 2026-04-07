@@ -101,6 +101,17 @@ const Map = ({
       offsetY: 0,
     });
   }, [currentFloor, route]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const imagesToPreload = Object.values(floorImages);
+    imagesToPreload.forEach((img, idx) => {
+      setTimeout(() => {
+        const imageObj = new window.Image();
+        imageObj.src = img.src || img;
+      }, 2000 + idx * 1000); 
+    });
+  }, []);
   return (
     <div ref={containerRef} className="absolute inset-0 w-full h-full bg-background">
       <MapContainer

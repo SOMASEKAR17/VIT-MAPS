@@ -33,7 +33,45 @@ const Home = () => {
       f.nodes.map((n) => ({ ...n, floorId: f.id }))
     );
     setNodes(mergedNodes);
-    if (floors.length > 0) setCurrentFloor(floors[0]); 
+
+    try {
+      const savedStart = localStorage.getItem("vitmaps_startNode");
+      const savedEnd = localStorage.getItem("vitmaps_endNode");
+      const savedAlgo = localStorage.getItem("vitmaps_algorithm");
+
+      let start = null;
+      let end = null;
+      let initialFloor = floors.length > 0 ? floors[0] : null;
+
+      if (savedAlgo) {
+        setSelectedAlgorithm(savedAlgo);
+      }
+
+      if (savedStart) {
+        start = JSON.parse(savedStart);
+        setStartNode(start);
+        setUserLoc(start.coordinates);
+        setSearchMode("search");
+        initialFloor = floors.find((f) => f.id === start.floorId) || initialFloor;
+      }
+
+      if (savedStart && savedEnd) {
+        end = JSON.parse(savedEnd);
+        setEndNode(end);
+        const results = benchmarkAllAlgorithms(projectSchema, start.nodeId, end.nodeId);
+        setBenchmarks(results);
+        const algoToUse = savedAlgo || "dijkstra";
+        const path = results[algoToUse]?.path || [];
+        setRoute(path);
+        setIsNavigating(true);
+      }
+
+      setCurrentFloor(initialFloor);
+    } catch (e) {
+      console.warn("Could not restore navigation state", e);
+      if (floors.length > 0) setCurrentFloor(floors[0]);
+    }
+
     setTimeout(() => setShowSplash(false), 1500);
   }, []);
   const nearestNode = useCallback(
@@ -79,11 +117,20 @@ const Home = () => {
     const floorObj = floors.find((f) => f.id === node.floorId);
     if (floorObj) setCurrentFloor(floorObj);
     setSearchMode("search");
+
+    try {
+      localStorage.setItem("vitmaps_startNode", JSON.stringify(node));
+      localStorage.removeItem("vitmaps_endNode");
+    } catch (e) {}
   };
   const handleDestSelect = (node) => {
     setEndNode(node);
     const floorObj = floors.find((f) => f.id === node.floorId);
     if (floorObj) setCurrentFloor(floorObj);
+
+    try {
+      localStorage.setItem("vitmaps_endNode", JSON.stringify(node));
+    } catch (e) {}
 
     if (!startNode?.nodeId) {
       setIsNavigating(false);
@@ -102,7 +149,7 @@ const Home = () => {
     setIsNavigating(true);
 
     const segments = splitPathByFloor(path);
-    const currentSeg = segments.find(s => s.floor === currentFloor?.id);
+    const currentSeg = segments.find(s => s.floor === currentFloor?.id || s.floor === floorObj?.id);
     if (!currentSeg && segments.length > 0) {
       setCurrentFloor(floors.find(f => f.id === segments[0].floor));
     }
@@ -115,6 +162,10 @@ const Home = () => {
     setIsNavigating(false);
     setBenchmarks({});
     setSearchMode("setLocation"); 
+    try {
+      localStorage.removeItem("vitmaps_startNode");
+      localStorage.removeItem("vitmaps_endNode");
+    } catch (e) {}
   }, []);
   const segments = useMemo(() => splitPathByFloor(route), [route]);
   const currentSegment =
@@ -179,6 +230,9 @@ const Home = () => {
               benchmarks={benchmarks}
               onChange={(key) => {
                 setSelectedAlgorithm(key);
+                try {
+                  localStorage.setItem("vitmaps_algorithm", key);
+                } catch (e) {}
                 // Use the pre-computed path from the benchmark cache
                 if (benchmarks[key]?.path) {
                   setRoute(benchmarks[key].path);
