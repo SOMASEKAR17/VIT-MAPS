@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
+import { Maximize2, Minimize2 } from "lucide-react";
 import dynamic from "next/dynamic";
 const Map = dynamic(() => import("../../components/map/Map"), { ssr: false });
 import SearchBar from "../../components/search/SearchBar";
@@ -28,7 +29,7 @@ const Home = () => {
   const [selectedAlgorithm, setSelectedAlgorithm] = useState("dijkstra");
   const [benchmarks, setBenchmarks] = useState({});
   const [isMobile, setIsMobile] = useState(false);
-  const [isSidebarMinimized, setIsSidebarMinimized] = useState(false);
+  const [sidebarState, setSidebarState] = useState("half"); // "minimized", "half", "full"
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -39,9 +40,9 @@ const Home = () => {
 
   useEffect(() => {
     if (isNavigating) {
-      setIsSidebarMinimized(true);
+      setSidebarState("minimized");
     } else {
-      setIsSidebarMinimized(false);
+      setSidebarState("half");
     }
   }, [isNavigating]);
   useEffect(() => {
@@ -206,26 +207,39 @@ const Home = () => {
         onDragEnd={(e, info) => {
           if (!isMobile) return;
           if (info.offset.y > 50 || info.velocity.y > 200) {
-            setIsSidebarMinimized(true);
-          } else if (info.offset.y < -20 || info.velocity.y < -200) {
-            setIsSidebarMinimized(false);
+            setSidebarState(prev => prev === "full" ? "half" : "minimized");
+          } else if (info.offset.y < -50 || info.velocity.y < -200) {
+            setSidebarState(prev => prev === "minimized" ? "half" : "full");
           }
         }}
         animate={{ 
-          y: isMobile && isSidebarMinimized ? "calc(100% - 32px)" : 0 
+          height: isMobile 
+            ? (sidebarState === "minimized" ? "40px" : sidebarState === "half" ? "55dvh" : "90dvh") 
+            : "100%",
+          y: 0 
         }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
-        className="w-full md:w-96 absolute bottom-0 md:relative h-[55vh] md:h-auto flex flex-col bg-surface border-t md:border-t-0 md:border-r border-border-custom z-[50000] shadow-[0_-10px_40px_rgba(0,0,0,0.5)] md:shadow-glass flex-shrink-0 rounded-t-3xl md:rounded-none touch-none md:touch-auto"
+        className="w-full md:w-96 absolute bottom-0 md:relative flex flex-col bg-surface border-t md:border-t-0 md:border-r border-border-custom z-[50000] shadow-[0_-10px_40px_rgba(0,0,0,0.5)] md:shadow-glass flex-shrink-0 rounded-t-3xl md:rounded-none touch-none md:touch-auto overflow-hidden"
       >
         {/* Drag Handle (Mobile only) */}
         <div 
-          className="w-full flex justify-center pt-3 pb-1 md:hidden cursor-pointer flex-shrink-0"
-          onClick={() => setIsSidebarMinimized(!isSidebarMinimized)}
+          className="w-full flex items-center justify-between px-6 h-[40px] md:hidden cursor-pointer flex-shrink-0"
+          onClick={() => setSidebarState(prev => prev === "minimized" ? "half" : "minimized")}
         >
+          <div className="w-8" />
           <div className="w-12 h-1.5 bg-white/20 hover:bg-white/40 transition-colors rounded-full" />
+          <button 
+             className="w-8 h-8 flex items-center justify-center text-white/50 hover:text-white"
+             onClick={(e) => {
+               e.stopPropagation();
+               setSidebarState(prev => prev === "full" ? "half" : "full");
+             }}
+          >
+            {sidebarState === "full" ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+          </button>
         </div>
 
-        <div className="px-4 md:px-6 pb-4 md:pb-6 pt-1 md:pt-6 space-y-4 md:space-y-8 flex flex-col h-full overflow-hidden">
+        <div className="px-4 md:px-6 pb-4 md:pb-6 pt-1 md:pt-6 space-y-4 md:space-y-8 flex flex-col flex-1 overflow-hidden">
           <div className="space-y-0.5 md:space-y-1 flex-shrink-0">
             <h1 className="text-3xl md:text-4xl font-bruno tracking-tighter text-accent inline-block">vitMaps</h1>
             <div className="text-[9px] md:text-[10px] font-bebas tracking-[0.3em] text-gray-500 uppercase">Indoor Navigation Suite</div>
