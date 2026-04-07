@@ -202,8 +202,8 @@ const Home = () => {
     <div className="flex flex-col-reverse md:flex-row w-full h-[100dvh] bg-background text-foreground overflow-hidden font-sans relative">
       <motion.aside 
         drag={isMobile ? "y" : false}
-        dragConstraints={{ top: 0 }}
-        dragElastic={0.2}
+        dragConstraints={{ top: 0, bottom: 0 }}
+        dragElastic={0.05}
         onDragEnd={(e, info) => {
           if (!isMobile) return;
           if (info.offset.y > 50 || info.velocity.y > 200) {
@@ -332,11 +332,15 @@ const Home = () => {
           />
         </div>
 
-        <div className="absolute bottom-20 right-4 md:bottom-24 md:right-6 z-[10000]">
+        <div className={`absolute right-4 md:bottom-24 md:right-6 z-[10000] transition-all duration-300 ${
+           isMobile && sidebarState === "minimized" ? "bottom-[140px]" : "bottom-20"
+        }`}>
            <ResetUserLocation onReset={handleResetUserLocation} />
         </div>
 
-        <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 z-[10000]">
+        <div className={`absolute left-4 right-4 md:left-6 md:right-6 z-[10000] transition-all duration-300 ${
+           isMobile && sidebarState === "minimized" ? "bottom-[56px]" : "bottom-4 md:bottom-6"
+        }`}>
           <BottomNavPanel
             route={route}
             startNode={startNode}
