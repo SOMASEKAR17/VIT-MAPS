@@ -180,15 +180,15 @@ const Home = () => {
 
   if (showSplash) return <SplashScreen />;
   return (
-    <div className="flex w-full h-screen bg-background text-foreground overflow-hidden font-sans">
-      <aside className="w-96 flex flex-col bg-surface border-r border-border-custom z-50 shadow-glass">
-        <div className="p-6 space-y-8 flex flex-col h-full overflow-hidden">
-          <div className="space-y-1">
-            <h1 className="text-4xl font-bruno tracking-tighter text-accent inline-block">vitMaps</h1>
-            <div className="text-[10px] font-bebas tracking-[0.3em] text-gray-500 uppercase">Indoor Navigation Suite</div>
+    <div className="flex flex-col-reverse md:flex-row w-full h-[100dvh] bg-background text-foreground overflow-hidden font-sans">
+      <aside className="w-full md:w-96 h-[45vh] md:h-auto flex flex-col bg-surface border-t md:border-t-0 md:border-r border-border-custom z-[50000] shadow-[0_-10px_40px_rgba(0,0,0,0.5)] md:shadow-glass flex-shrink-0 relative">
+        <div className="p-4 md:p-6 space-y-4 md:space-y-8 flex flex-col h-full overflow-hidden">
+          <div className="space-y-0.5 md:space-y-1 flex-shrink-0">
+            <h1 className="text-3xl md:text-4xl font-bruno tracking-tighter text-accent inline-block">vitMaps</h1>
+            <div className="text-[9px] md:text-[10px] font-bebas tracking-[0.3em] text-gray-500 uppercase">Indoor Navigation Suite</div>
           </div>
           
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4 flex-shrink-0">
             <div className={`p-3 rounded-2xl border transition-all ${searchMode === 'setLocation' ? 'bg-accent/10 border-accent/30' : 'bg-white/5 border-white/5 opacity-60'}`}>
               <div className="text-[10px] font-bebas tracking-widest text-accent mb-2">Step 1: Set Your Location</div>
               <SearchBar
@@ -224,7 +224,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="flex-1 overflow-y-auto space-y-6 pr-1 scrollbar-hide">
+          <div className="flex-1 overflow-y-auto space-y-4 md:space-y-6 pr-1 scrollbar-hide pb-2">
             <AlgorithmSelector
               selected={selectedAlgorithm}
               benchmarks={benchmarks}
@@ -233,7 +233,6 @@ const Home = () => {
                 try {
                   localStorage.setItem("vitmaps_algorithm", key);
                 } catch (e) {}
-                // Use the pre-computed path from the benchmark cache
                 if (benchmarks[key]?.path) {
                   setRoute(benchmarks[key].path);
                   setIsNavigating(true);
@@ -243,7 +242,7 @@ const Home = () => {
           </div>
         </div>
         
-        <div className="mt-auto p-4 border-t border-border-custom">
+        <div className="mt-auto p-3 md:p-4 border-t border-border-custom hidden md:block">
             <Footer />
         </div>
       </aside>
@@ -259,7 +258,7 @@ const Home = () => {
           currentFloor={currentFloor}
         />
 
-        <div className="absolute top-6 right-6 z-[10000] space-y-4">
+        <div className="absolute top-4 right-4 md:top-6 md:right-6 z-[10000] space-y-4">
            <FloorSelector
             floors={floors}
             currentFloor={currentFloor}
@@ -276,11 +275,11 @@ const Home = () => {
           />
         </div>
 
-        <div className="absolute bottom-24 right-6 z-[10000]">
+        <div className="absolute bottom-20 right-4 md:bottom-24 md:right-6 z-[10000]">
            <ResetUserLocation onReset={handleResetUserLocation} />
         </div>
 
-        <div className="absolute bottom-6 left-6 right-6 z-[10000]">
+        <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 z-[10000]">
           <BottomNavPanel
             route={route}
             startNode={startNode}

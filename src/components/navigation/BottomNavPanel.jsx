@@ -135,47 +135,53 @@ const BottomNavPanel = ({
         className="max-w-4xl mx-auto w-full relative z-[9999]"
       >
         <div
-          className="rounded-3xl px-6 py-5 border-2 border-white/10 shadow-[0_30px_100px_rgba(0,0,0,1)]"
+          className="rounded-2xl md:rounded-3xl px-3 md:px-6 py-3 md:py-5 border-2 border-white/10 shadow-[0_30px_100px_rgba(0,0,0,1)]"
           style={{ backgroundColor: '#0a0a0a' }}
         >
-          {/* Floor navigation + Route info */}
-          <div className="flex items-center gap-4">
-            {/* Prev floor button */}
-            <div className="flex-shrink-0">
+          <div className="flex flex-col md:flex-row items-center gap-3 md:gap-4 w-full">
+            <div className="flex-shrink-0 w-full md:w-auto flex justify-between md:block order-2 md:order-1">
               {prevSegment ? (
                 <button
                   onClick={() => onFloorChange(prevSegment.floor)}
-                  className="bg-white/5 border border-white/10 text-white px-4 py-2.5 rounded-xl hover:bg-white/10 transition-all text-sm flex items-center gap-2"
+                  className="bg-white/5 border border-white/10 text-white px-3 md:px-4 py-2 md:py-2.5 rounded-xl hover:bg-white/10 transition-all text-xs md:text-sm flex items-center gap-1 md:gap-2"
                 >
                   <ChevronLeft className="w-4 h-4" />
-                  <span className="hidden sm:inline font-medium">{getFloorName(prevSegment.floor)}</span>
+                  <span className="font-medium">{getFloorName(prevSegment.floor)}</span>
                 </button>
-              ) : <div className="w-10" />}
+              ) : <div className="w-10 hidden md:block" />}
+              {nextSegment ? (
+                <button
+                  onClick={() => onFloorChange(nextSegment.floor)}
+                  className="bg-accent/20 border border-accent/30 text-accent px-3 py-2 rounded-xl hover:bg-accent hover:text-black transition-all text-xs font-semibold flex items-center gap-1 md:hidden"
+                >
+                  <span className="">{getFloorName(nextSegment.floor)}</span>
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              ) : <div className="w-10 hidden md:block" />}
             </div>
 
-            {/* Center: route steps */}
-            <div className="flex-1 flex items-center justify-center gap-2 min-w-0">
+            <div className="flex-1 flex flex-wrap md:flex-nowrap items-center justify-center gap-1.5 md:gap-2 min-w-0 order-1 md:order-2 w-full">
               {steps.map((step, idx) => (
                 <React.Fragment key={idx}>
-                  <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-sm font-semibold whitespace-nowrap ${
+                  <div className={`flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 rounded-lg md:rounded-xl text-xs md:text-sm font-semibold whitespace-nowrap ${
                     step.type === "start"
                       ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
                       : step.type === "end"
                       ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
                       : "bg-amber-500/15 text-amber-400 border border-amber-500/30"
                   }`}>
-                    <span>{step.icon}</span>
-                    <span className="truncate max-w-[140px]">{step.label}</span>
+                    <span className="scale-75 md:scale-100">{step.icon}</span>
+                    <span className="truncate max-w-[80px] md:max-w-[140px]">{step.label}</span>
                   </div>
                   {idx < steps.length - 1 && (
-                    <ChevronRight className="w-4 h-4 text-white/30 flex-shrink-0" strokeWidth={3} />
+                    <ChevronRight className="w-3 h-3 md:w-4 md:h-4 text-white/30 flex-shrink-0" strokeWidth={3} />
                   )}
                 </React.Fragment>
               ))}
             </div>
 
-            {/* Next floor button */}
-            <div className="flex-shrink-0">
+            {/* Next floor button (Desktop) */}
+            <div className="flex-shrink-0 hidden md:block order-3">
               {nextSegment ? (
                 <button
                   onClick={() => onFloorChange(nextSegment.floor)}
