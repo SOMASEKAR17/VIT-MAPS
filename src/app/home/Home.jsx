@@ -229,7 +229,8 @@ const Home = () => {
         <div className="absolute bottom-6 left-6 right-6 z-[10000]">
           <BottomNavPanel
             route={route}
-            destination={endNode}
+            startNode={startNode}
+            endNode={endNode}
             isNavigating={isNavigating}
             loading={false}
             currentFloor={currentFloor?.id}

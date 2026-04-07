@@ -14,4 +14,5 @@ export const floorDimensions = {
   "cefd4e4e-3a9e-4659-829d-debfa385fd11": { width: 1855, height: 900 },
   "8649e62e-f5a9-46f7-ac75-801dfa194ade": { width: 1855, height: 900 },
   "586f40cd-8306-4040-88c9-e3f61b8e098d": { width: 4202, height: 2970 }, 
+  "01a9fac3-543e-413d-80d9-29565c67c2a8": { width: 4202, height: 2970 },
 };

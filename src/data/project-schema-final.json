@@ -1,14 +1,14 @@
 {
   "building": {
-    "id": "default_building",
-    "name": "Academic Building - Ground Floor"
+    "id": "PRP",
+    "name": "PRP Building"
   },
   "floors": [
     {
   "id": "586f40cd-8306-4040-88c9-e3f61b8e098d",
   "projectId": "c7b1679a-9dd5-4a73-99ae-e9dcb65224b3",
-  "name": "Ground floor",
-  "level": 0,
+  "name": "First floor",
+  "level": 1,
   "nodes": [
     {
       "nodeId": "0a3f432b-f374-44c9-8c4d-7baa1257881a",
@@ -2437,10 +2437,2630 @@
       ]
     }
   ]
+},{
+  "id": "01a9fac3-543e-413d-80d9-29565c67c2a8",
+  "projectId": "9cfe8e67-5356-4a80-9ad1-addb2bc63e3d",
+  "name": "Ground floor",
+  "level": 0,
+  "nodes": [
+    {
+      "nodeId": "7dbfaa73-a405-4224-b06c-aaeda17a4fef",
+      "name": "PRP-G28(LADIES WASHROOM)",
+      "type": "room",
+      "coordinates": {
+        "x": 21.99,
+        "y": 13.98,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "8d071ef9-138a-46b8-82fd-776ae7b7b6e2",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "1296aae6-801a-4444-9415-ed86d164b353",
+      "name": "PRP-G27(GENTS WASHROOM)",
+      "type": "room",
+      "coordinates": {
+        "x": 25.01,
+        "y": 17.52,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "75b58204-2ef4-4b87-8c87-c9d1954c71df",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "67fb814c-0ac3-4f3e-bbde-fb7428284312",
+      "name": "ELEVATOR G1",
+      "type": "elevator",
+      "coordinates": {
+        "x": 24.68,
+        "y": 20.65,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "77f04938-aa49-4ad4-aa78-9dc30bdae16d",
+          "distance": 0
+        },
+        {
+          "nodeId": "22123e29-3a48-4ef5-be04-6f9335b27f18",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "12597d6b-0b1b-4f2b-bf8b-6d3ffd2200bf",
+      "name": "ELEVATOR G2",
+      "type": "elevator",
+      "coordinates": {
+        "x": 25.43,
+        "y": 23.41,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "44588c8b-bdcf-47fb-9d4c-fde30fc3f6d3",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "49cb00e7-f70a-4ad0-a791-267160648a29",
+      "name": "STAIR G1",
+      "type": "stairs",
+      "coordinates": {
+        "x": 22.82,
+        "y": 22.71,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "22123e29-3a48-4ef5-be04-6f9335b27f18",
+          "distance": 0
+        },
+        {
+          "nodeId": "891317df-5844-415a-a356-7aee6d56c98a",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "891317df-5844-415a-a356-7aee6d56c98a",
+      "name": "STAIR G2",
+      "type": "stairs",
+      "coordinates": {
+        "x": 22.47,
+        "y": 21.32,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "22123e29-3a48-4ef5-be04-6f9335b27f18",
+          "distance": 0
+        },
+        {
+          "nodeId": "49cb00e7-f70a-4ad0-a791-267160648a29",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "41451d97-fb10-47fa-a5ed-5dc72c3ad2ea",
+      "name": "PRP-G24",
+      "type": "room",
+      "coordinates": {
+        "x": 22.25,
+        "y": 29.68,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "70ba01af-d686-4d09-8c04-56e3b2d02762",
+          "distance": 0
+        },
+        {
+          "nodeId": "eebf9f0d-aa30-4fe4-9eb3-153480032fd0",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "80c94669-800a-4465-9f3c-dcd100f879fd",
+      "name": "PRP-G23",
+      "type": "room",
+      "coordinates": {
+        "x": 23.79,
+        "y": 33.44,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "70ba01af-d686-4d09-8c04-56e3b2d02762",
+          "distance": 0
+        },
+        {
+          "nodeId": "87d820fe-974b-41c0-b430-1ec6210ded86",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "1f269073-48ec-4bd6-a38c-92903db710ba",
+      "name": "PRP-G26",
+      "type": "room",
+      "coordinates": {
+        "x": 28.79,
+        "y": 25.94,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "310728b1-31de-4eaa-82ba-2c0949233847",
+          "distance": 0
+        },
+        {
+          "nodeId": "491c74a8-eb03-47ed-b243-fd373e644e74",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "12319d60-8368-46c4-9ebb-164e342e3ba5",
+      "name": "PRP-G25",
+      "type": "room",
+      "coordinates": {
+        "x": 30.33,
+        "y": 29.72,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "491c74a8-eb03-47ed-b243-fd373e644e74",
+          "distance": 0
+        },
+        {
+          "nodeId": "7cefb87a-82b6-412d-92f9-794070d23ac8",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "09432ed7-ceed-4df7-9676-3600a381ca1f",
+      "name": "ENTERANCE 1",
+      "type": "door",
+      "coordinates": {
+        "x": 25.63,
+        "y": 42.75,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "87d820fe-974b-41c0-b430-1ec6210ded86",
+          "distance": 0
+        },
+        {
+          "nodeId": "79486617-8710-421d-b353-dac930d73ee7",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "7838d73f-d3f2-4876-93fe-94bd99f70e46",
+      "name": "PRP-G22(CANTEEN)",
+      "type": "room",
+      "coordinates": {
+        "x": 29.61,
+        "y": 46.71,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "79486617-8710-421d-b353-dac930d73ee7",
+          "distance": 0
+        },
+        {
+          "nodeId": "40c8f9ce-7e22-43f6-9168-5aac69707402",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "14bd8cab-21df-46c9-bbb3-fcd8d9df9473",
+      "name": "PRP-G17",
+      "type": "room",
+      "coordinates": {
+        "x": 31.96,
+        "y": 44.53,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "40c8f9ce-7e22-43f6-9168-5aac69707402",
+          "distance": 0
+        },
+        {
+          "nodeId": "575a9f07-6911-4384-92d6-be27cf17cde6",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "ce5b3099-d473-4529-9c35-787a9ca76c27",
+      "name": "PRP-G18",
+      "type": "room",
+      "coordinates": {
+        "x": 36.04,
+        "y": 43.66,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "56f9e57d-7a63-4f97-b2e3-bef7ae06b7c5",
+          "distance": 0
+        },
+        {
+          "nodeId": "575a9f07-6911-4384-92d6-be27cf17cde6",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "4c9d29e2-a519-4619-9329-d19f498e3628",
+      "name": "PRP-G21",
+      "type": "room",
+      "coordinates": {
+        "x": 32,
+        "y": 53.59,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "955e52d9-af7c-459c-98fe-1774d3eac5d6",
+          "distance": 0
+        },
+        {
+          "nodeId": "b5d018d9-86d9-4589-9f66-72a0163d515f",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "7fb1eab0-fdad-44b0-ae8c-302cf68a0752",
+      "name": "PRP-G19",
+      "type": "room",
+      "coordinates": {
+        "x": 39.6,
+        "y": 51.56,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "a6c09e11-2639-45c5-a53a-ed9bdbe461d4",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "1a9c55a1-4ed6-4a7c-9ce0-45be4c327d5d",
+      "name": "PRP-G20",
+      "type": "room",
+      "coordinates": {
+        "x": 36.11,
+        "y": 52.7,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "b5d018d9-86d9-4589-9f66-72a0163d515f",
+          "distance": 0
+        },
+        {
+          "nodeId": "ed486909-ee74-4644-a725-901859e3458d",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "f0f34371-141a-49e3-856e-ec34b032593c",
+      "name": "ENTERANCE 2",
+      "type": "door",
+      "coordinates": {
+        "x": 38.18,
+        "y": 61.88,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "537889dc-625b-4eea-8964-112f994267fb",
+          "distance": 0
+        },
+        {
+          "nodeId": "7a0d4f4f-f1c6-4fbb-8dc8-e5f12c07e95f",
+          "distance": 0
+        },
+        {
+          "nodeId": "07d8dc28-903e-4ce5-8f97-58dd5386c4a7",
+          "distance": 0
+        },
+        {
+          "nodeId": "01ee1e7d-5707-4ea6-b1e8-e685f903ad58",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "07d8dc28-903e-4ce5-8f97-58dd5386c4a7",
+      "name": "STAIR G3",
+      "type": "stairs",
+      "coordinates": {
+        "x": 39.94,
+        "y": 60.55,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "f0f34371-141a-49e3-856e-ec34b032593c",
+          "distance": 0
+        },
+        {
+          "nodeId": "7a0d4f4f-f1c6-4fbb-8dc8-e5f12c07e95f",
+          "distance": 0
+        },
+        {
+          "nodeId": "537889dc-625b-4eea-8964-112f994267fb",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "8c593404-a21b-40a0-b928-ce3caf5c23ed",
+      "name": "STAIR G4",
+      "type": "stairs",
+      "coordinates": {
+        "x": 44.73,
+        "y": 56.71,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "aa587df0-6b82-494d-8fe9-6eb535e3c0ea",
+          "distance": 0
+        },
+        {
+          "nodeId": "94bfc784-5343-433a-b137-4153705d63ac",
+          "distance": 0
+        },
+        {
+          "nodeId": "1101ee62-02b2-4c09-a4e1-a07dc20efa3b",
+          "distance": 0
+        },
+        {
+          "nodeId": "e3639e21-e75b-437d-8fe5-772c533f1143",
+          "distance": 0
+        },
+        {
+          "nodeId": "fb2f354a-a32a-4313-b9d9-7d238dbec1f6",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "01ee1e7d-5707-4ea6-b1e8-e685f903ad58",
+      "name": "ELEVATOR G3",
+      "type": "elevator",
+      "coordinates": {
+        "x": 41.24,
+        "y": 62.06,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "7a0d4f4f-f1c6-4fbb-8dc8-e5f12c07e95f",
+          "distance": 0
+        },
+        {
+          "nodeId": "f0f34371-141a-49e3-856e-ec34b032593c",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "e9e5e0a3-b853-4765-a9eb-1faa01d551f8",
+      "name": "PRP-G16",
+      "type": "room",
+      "coordinates": {
+        "x": 46.68,
+        "y": 57.62,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "94bfc784-5343-433a-b137-4153705d63ac",
+          "distance": 0
+        },
+        {
+          "nodeId": "1101ee62-02b2-4c09-a4e1-a07dc20efa3b",
+          "distance": 0
+        },
+        {
+          "nodeId": "e3639e21-e75b-437d-8fe5-772c533f1143",
+          "distance": 0
+        },
+        {
+          "nodeId": "fb2f354a-a32a-4313-b9d9-7d238dbec1f6",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "254810d7-dedd-4636-af34-4310ba9c22a4",
+      "name": "PRP-G15",
+      "type": "room",
+      "coordinates": {
+        "x": 48.56,
+        "y": 59.03,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "94bfc784-5343-433a-b137-4153705d63ac",
+          "distance": 0
+        },
+        {
+          "nodeId": "1101ee62-02b2-4c09-a4e1-a07dc20efa3b",
+          "distance": 0
+        },
+        {
+          "nodeId": "e3639e21-e75b-437d-8fe5-772c533f1143",
+          "distance": 0
+        },
+        {
+          "nodeId": "fb2f354a-a32a-4313-b9d9-7d238dbec1f6",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "c6b844a7-74be-4026-9628-cd632b037d3c",
+      "name": "PRP-G14",
+      "type": "room",
+      "coordinates": {
+        "x": 52.98,
+        "y": 57.8,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "e3639e21-e75b-437d-8fe5-772c533f1143",
+          "distance": 0
+        },
+        {
+          "nodeId": "bdeb1815-748a-4b4f-b0d0-365844314494",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "b98396fb-e7fa-4bfc-a2d7-a9289b724913",
+      "name": "STAIR G5",
+      "type": "stairs",
+      "coordinates": {
+        "x": 53.41,
+        "y": 56.59,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "1101ee62-02b2-4c09-a4e1-a07dc20efa3b",
+          "distance": 0
+        },
+        {
+          "nodeId": "bdeb1815-748a-4b4f-b0d0-365844314494",
+          "distance": 0
+        },
+        {
+          "nodeId": "e3639e21-e75b-437d-8fe5-772c533f1143",
+          "distance": 0
+        },
+        {
+          "nodeId": "94bfc784-5343-433a-b137-4153705d63ac",
+          "distance": 0
+        },
+        {
+          "nodeId": "fb2f354a-a32a-4313-b9d9-7d238dbec1f6",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "a55d0141-ef1d-4bf3-b7a1-122528b7115c",
+      "name": "STAIR G6",
+      "type": "stairs",
+      "coordinates": {
+        "x": 58.06,
+        "y": 60.69,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "f3fdeee3-7bc4-4aa7-a171-bbdc7e816d3f",
+          "distance": 0
+        },
+        {
+          "nodeId": "7f35fbdb-e15e-4c24-86b3-6ab6142a3e54",
+          "distance": 0
+        },
+        {
+          "nodeId": "8a1f20a4-7b11-41fd-b0f1-101ea1930a21",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "64f799a0-19e8-47f0-a582-e6ae13589e39",
+      "name": "ELEVATOR G4",
+      "type": "elevator",
+      "coordinates": {
+        "x": 56.8,
+        "y": 61.99,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "f3fdeee3-7bc4-4aa7-a171-bbdc7e816d3f",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "8a1f20a4-7b11-41fd-b0f1-101ea1930a21",
+      "name": "ENTERANCE 3",
+      "type": "door",
+      "coordinates": {
+        "x": 59.72,
+        "y": 61.79,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "7f35fbdb-e15e-4c24-86b3-6ab6142a3e54",
+          "distance": 0
+        },
+        {
+          "nodeId": "f3fdeee3-7bc4-4aa7-a171-bbdc7e816d3f",
+          "distance": 0
+        },
+        {
+          "nodeId": "a55d0141-ef1d-4bf3-b7a1-122528b7115c",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "fb2f354a-a32a-4313-b9d9-7d238dbec1f6",
+      "name": "MAIN ENTERANCE",
+      "type": "door",
+      "coordinates": {
+        "x": 48.87,
+        "y": 44.75,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "b0e22d5c-e2c7-4568-bf08-8ca73a381f59",
+          "distance": 0
+        },
+        {
+          "nodeId": "1101ee62-02b2-4c09-a4e1-a07dc20efa3b",
+          "distance": 0
+        },
+        {
+          "nodeId": "010f046d-36d0-4821-85d7-7f1f184fdaec",
+          "distance": 0
+        },
+        {
+          "nodeId": "e3639e21-e75b-437d-8fe5-772c533f1143",
+          "distance": 0
+        },
+        {
+          "nodeId": "94bfc784-5343-433a-b137-4153705d63ac",
+          "distance": 0
+        },
+        {
+          "nodeId": "e9e5e0a3-b853-4765-a9eb-1faa01d551f8",
+          "distance": 0
+        },
+        {
+          "nodeId": "b98396fb-e7fa-4bfc-a2d7-a9289b724913",
+          "distance": 0
+        },
+        {
+          "nodeId": "8c593404-a21b-40a0-b928-ce3caf5c23ed",
+          "distance": 0
+        },
+        {
+          "nodeId": "254810d7-dedd-4636-af34-4310ba9c22a4",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "4e915f31-5d37-4f23-9258-8f93329b2534",
+      "name": "ELEVATOR G5",
+      "type": "elevator",
+      "coordinates": {
+        "x": 57.81,
+        "y": 51.28,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "b4dc3758-c0e7-47b0-9d47-0b9786229b64",
+          "distance": 0
+        },
+        {
+          "nodeId": "c0667a0f-91d3-4566-9fa6-060a707599f6",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "63748f3b-ea7d-4daf-bfd7-7ffc82974910",
+      "name": "ELEVATOR G6",
+      "type": "elevator",
+      "coordinates": {
+        "x": 59.72,
+        "y": 50.85,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "9113a288-8e93-4071-b825-d9686eb2d2dd",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "f7c7aeab-d549-4e6f-a5f8-724a4ab5f0c1",
+      "name": "STAIR G7",
+      "type": "stairs",
+      "coordinates": {
+        "x": 58.08,
+        "y": 47.88,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "c0667a0f-91d3-4566-9fa6-060a707599f6",
+          "distance": 0
+        },
+        {
+          "nodeId": "3a272d6b-fc92-4484-89f8-638973e1da9a",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "3a272d6b-fc92-4484-89f8-638973e1da9a",
+      "name": "STAIR G8",
+      "type": "stairs",
+      "coordinates": {
+        "x": 56.95,
+        "y": 48.24,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "c0667a0f-91d3-4566-9fa6-060a707599f6",
+          "distance": 0
+        },
+        {
+          "nodeId": "f7c7aeab-d549-4e6f-a5f8-724a4ab5f0c1",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "d646680e-b7fc-4674-b116-7d63a276f149",
+      "name": "G-12_13(STAFF WASHROOM)",
+      "type": "room",
+      "coordinates": {
+        "x": 60.55,
+        "y": 47.97,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "fb4af420-d743-44d2-b243-aa0b5c872b4f",
+          "distance": 0
+        },
+        {
+          "nodeId": "bb313c0b-cbd5-41f9-8fa1-b3db4b3ccd61",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "5eaa315d-2606-4f23-b64a-919ceb21b73d",
+      "name": "PRP-G11",
+      "type": "room",
+      "coordinates": {
+        "x": 62.13,
+        "y": 52.65,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "fb4af420-d743-44d2-b243-aa0b5c872b4f",
+          "distance": 0
+        },
+        {
+          "nodeId": "3acae3a1-cd09-48f7-8617-090145c71d0c",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "49177190-c56a-49cb-9a89-0c200d055af5",
+      "name": "PRP-G08",
+      "type": "room",
+      "coordinates": {
+        "x": 62.05,
+        "y": 43.58,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "bb313c0b-cbd5-41f9-8fa1-b3db4b3ccd61",
+          "distance": 0
+        },
+        {
+          "nodeId": "ab2d9c7e-67f0-4b02-a127-57a204f7b964",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "12db9ab0-558d-427b-805a-3a676c88a2ec",
+      "name": "PRP-G10",
+      "type": "room",
+      "coordinates": {
+        "x": 66.21,
+        "y": 53.47,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "0562ed45-c662-44eb-b288-753b6e8954bc",
+          "distance": 0
+        },
+        {
+          "nodeId": "3acae3a1-cd09-48f7-8617-090145c71d0c",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "60ed7b55-259e-49a1-9589-1071c5867611",
+      "name": "PRP-G09(CANTEEN)",
+      "type": "room",
+      "coordinates": {
+        "x": 68.41,
+        "y": 46.57,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "e6ad3470-c26f-44b8-98c8-185ed8498074",
+          "distance": 0
+        },
+        {
+          "nodeId": "58724b65-1fcf-4764-93df-1380f6cf968b",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "f0c18a73-3c83-43da-aade-2ecce8b82216",
+      "name": "PRP-G07",
+      "type": "room",
+      "coordinates": {
+        "x": 70.1,
+        "y": 33.96,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "abe529ff-dfc5-4e1e-89ef-ac4f37f3b0c4",
+          "distance": 0
+        },
+        {
+          "nodeId": "753fc46b-6051-4e25-a8c0-d078f0c3fe63",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "c7a18734-0c3b-49ea-b9d2-cfde73a7dead",
+      "name": "PRP-G04",
+      "type": "room",
+      "coordinates": {
+        "x": 67.7,
+        "y": 29.76,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "41d8a06b-8bf5-4900-882c-c077e31b5694",
+          "distance": 0
+        },
+        {
+          "nodeId": "753fc46b-6051-4e25-a8c0-d078f0c3fe63",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "c7d07e2d-fa69-47db-8dc0-a212ed544768",
+      "name": "PRP-G03",
+      "type": "room",
+      "coordinates": {
+        "x": 69.33,
+        "y": 25.91,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "02cd86ba-7d7c-422c-9f72-03698840af2d",
+          "distance": 0
+        },
+        {
+          "nodeId": "41d8a06b-8bf5-4900-882c-c077e31b5694",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "6889657c-9608-4cdf-ac48-21aa49b52cb8",
+      "name": "PRP-G06",
+      "type": "room",
+      "coordinates": {
+        "x": 74.28,
+        "y": 33.32,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "abe529ff-dfc5-4e1e-89ef-ac4f37f3b0c4",
+          "distance": 0
+        },
+        {
+          "nodeId": "dabc6223-606d-4201-ae99-e8862052da36",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "39771ea5-263f-4313-8ee6-7a46c004e99f",
+      "name": "PRP-G05",
+      "type": "room",
+      "coordinates": {
+        "x": 75.87,
+        "y": 29.56,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "dabc6223-606d-4201-ae99-e8862052da36",
+          "distance": 0
+        },
+        {
+          "nodeId": "6b598e63-bcfc-4204-9bef-4b6d89868ebe",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "fa4a46d4-1e0c-456c-af72-83b316f2052a",
+      "name": "ELEVATOR G7",
+      "type": "elevator",
+      "coordinates": {
+        "x": 72.71,
+        "y": 23.2,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "d81a865a-5afd-4a82-8ffc-75a369256667",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "3112f005-a45c-45d9-b30a-fb7f27eda0d1",
+      "name": "ELEVATOR G8",
+      "type": "elevator",
+      "coordinates": {
+        "x": 73.37,
+        "y": 20.7,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "1cf0d5ce-7d21-43cf-9d42-f283051330c4",
+          "distance": 0
+        },
+        {
+          "nodeId": "9d76fe67-9a46-414d-9640-0532b42dba67",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "e2e17911-5d96-48d2-8fcc-4b2e5c1b2c33",
+      "name": "STAIR G9",
+      "type": "stairs",
+      "coordinates": {
+        "x": 75.19,
+        "y": 22.68,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "9d76fe67-9a46-414d-9640-0532b42dba67",
+          "distance": 0
+        },
+        {
+          "nodeId": "09bfae64-6acd-4d40-b53b-dc8a0bf468ec",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "09bfae64-6acd-4d40-b53b-dc8a0bf468ec",
+      "name": "STAIR G10",
+      "type": "stairs",
+      "coordinates": {
+        "x": 75.55,
+        "y": 21.29,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "9d76fe67-9a46-414d-9640-0532b42dba67",
+          "distance": 0
+        },
+        {
+          "nodeId": "e2e17911-5d96-48d2-8fcc-4b2e5c1b2c33",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "a016ee5b-e09f-473e-b593-fd9f40e418d2",
+      "name": "PRP-G02(GENTS WASHROOM)",
+      "type": "room",
+      "coordinates": {
+        "x": 73.22,
+        "y": 17.49,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "a6dc0bc5-f706-42d6-be10-13f8cd0af293",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "f6427daf-943c-45e6-800b-6d6ffddfd031",
+      "name": "PRP-G01(LADIES WASHROOM)",
+      "type": "room",
+      "coordinates": {
+        "x": 76.16,
+        "y": 14.11,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "b5e54991-f7e3-4797-88e5-fce8119587c2",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "b5e54991-f7e3-4797-88e5-fce8119587c2",
+      "name": "Hallway G1",
+      "type": "hallway",
+      "coordinates": {
+        "x": 74.27,
+        "y": 14.19,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "a6dc0bc5-f706-42d6-be10-13f8cd0af293",
+          "distance": 0
+        },
+        {
+          "nodeId": "f6427daf-943c-45e6-800b-6d6ffddfd031",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "a6dc0bc5-f706-42d6-be10-13f8cd0af293",
+      "name": "Hallway G2",
+      "type": "hallway",
+      "coordinates": {
+        "x": 72.45,
+        "y": 16.9,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "1cf0d5ce-7d21-43cf-9d42-f283051330c4",
+          "distance": 0
+        },
+        {
+          "nodeId": "a016ee5b-e09f-473e-b593-fd9f40e418d2",
+          "distance": 0
+        },
+        {
+          "nodeId": "b5e54991-f7e3-4797-88e5-fce8119587c2",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "1cf0d5ce-7d21-43cf-9d42-f283051330c4",
+      "name": "Hallway G3",
+      "type": "hallway",
+      "coordinates": {
+        "x": 71.91,
+        "y": 20.23,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "d81a865a-5afd-4a82-8ffc-75a369256667",
+          "distance": 0
+        },
+        {
+          "nodeId": "3112f005-a45c-45d9-b30a-fb7f27eda0d1",
+          "distance": 0
+        },
+        {
+          "nodeId": "9d76fe67-9a46-414d-9640-0532b42dba67",
+          "distance": 0
+        },
+        {
+          "nodeId": "a6dc0bc5-f706-42d6-be10-13f8cd0af293",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "9d76fe67-9a46-414d-9640-0532b42dba67",
+      "name": "Hallway G4",
+      "type": "hallway",
+      "coordinates": {
+        "x": 74.28,
+        "y": 22.25,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "1cf0d5ce-7d21-43cf-9d42-f283051330c4",
+          "distance": 0
+        },
+        {
+          "nodeId": "3112f005-a45c-45d9-b30a-fb7f27eda0d1",
+          "distance": 0
+        },
+        {
+          "nodeId": "09bfae64-6acd-4d40-b53b-dc8a0bf468ec",
+          "distance": 0
+        },
+        {
+          "nodeId": "e2e17911-5d96-48d2-8fcc-4b2e5c1b2c33",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "d81a865a-5afd-4a82-8ffc-75a369256667",
+      "name": "Hallway G5",
+      "type": "hallway",
+      "coordinates": {
+        "x": 71.65,
+        "y": 22.77,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "02cd86ba-7d7c-422c-9f72-03698840af2d",
+          "distance": 0
+        },
+        {
+          "nodeId": "fa4a46d4-1e0c-456c-af72-83b316f2052a",
+          "distance": 0
+        },
+        {
+          "nodeId": "1cf0d5ce-7d21-43cf-9d42-f283051330c4",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "02cd86ba-7d7c-422c-9f72-03698840af2d",
+      "name": "Hallway G6",
+      "type": "hallway",
+      "coordinates": {
+        "x": 71.6,
+        "y": 24.98,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "6b598e63-bcfc-4204-9bef-4b6d89868ebe",
+          "distance": 0
+        },
+        {
+          "nodeId": "c7d07e2d-fa69-47db-8dc0-a212ed544768",
+          "distance": 0
+        },
+        {
+          "nodeId": "41d8a06b-8bf5-4900-882c-c077e31b5694",
+          "distance": 0
+        },
+        {
+          "nodeId": "d81a865a-5afd-4a82-8ffc-75a369256667",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "41d8a06b-8bf5-4900-882c-c077e31b5694",
+      "name": "Hallway G7",
+      "type": "hallway",
+      "coordinates": {
+        "x": 68.65,
+        "y": 27.76,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "c7d07e2d-fa69-47db-8dc0-a212ed544768",
+          "distance": 0
+        },
+        {
+          "nodeId": "02cd86ba-7d7c-422c-9f72-03698840af2d",
+          "distance": 0
+        },
+        {
+          "nodeId": "c7a18734-0c3b-49ea-b9d2-cfde73a7dead",
+          "distance": 0
+        },
+        {
+          "nodeId": "753fc46b-6051-4e25-a8c0-d078f0c3fe63",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "753fc46b-6051-4e25-a8c0-d078f0c3fe63",
+      "name": "Hallway G8",
+      "type": "hallway",
+      "coordinates": {
+        "x": 68.59,
+        "y": 31.23,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "c7a18734-0c3b-49ea-b9d2-cfde73a7dead",
+          "distance": 0
+        },
+        {
+          "nodeId": "41d8a06b-8bf5-4900-882c-c077e31b5694",
+          "distance": 0
+        },
+        {
+          "nodeId": "f0c18a73-3c83-43da-aade-2ecce8b82216",
+          "distance": 0
+        },
+        {
+          "nodeId": "abe529ff-dfc5-4e1e-89ef-ac4f37f3b0c4",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "abe529ff-dfc5-4e1e-89ef-ac4f37f3b0c4",
+      "name": "Hallway G9",
+      "type": "hallway",
+      "coordinates": {
+        "x": 71.8,
+        "y": 33.9,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "58724b65-1fcf-4764-93df-1380f6cf968b",
+          "distance": 0
+        },
+        {
+          "nodeId": "f0c18a73-3c83-43da-aade-2ecce8b82216",
+          "distance": 0
+        },
+        {
+          "nodeId": "6889657c-9608-4cdf-ac48-21aa49b52cb8",
+          "distance": 0
+        },
+        {
+          "nodeId": "dabc6223-606d-4201-ae99-e8862052da36",
+          "distance": 0
+        },
+        {
+          "nodeId": "753fc46b-6051-4e25-a8c0-d078f0c3fe63",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "dabc6223-606d-4201-ae99-e8862052da36",
+      "name": "Hallway G10",
+      "type": "hallway",
+      "coordinates": {
+        "x": 74.81,
+        "y": 31.44,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "abe529ff-dfc5-4e1e-89ef-ac4f37f3b0c4",
+          "distance": 0
+        },
+        {
+          "nodeId": "6889657c-9608-4cdf-ac48-21aa49b52cb8",
+          "distance": 0
+        },
+        {
+          "nodeId": "39771ea5-263f-4313-8ee6-7a46c004e99f",
+          "distance": 0
+        },
+        {
+          "nodeId": "6b598e63-bcfc-4204-9bef-4b6d89868ebe",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "6b598e63-bcfc-4204-9bef-4b6d89868ebe",
+      "name": "Hallway G11",
+      "type": "hallway",
+      "coordinates": {
+        "x": 74.92,
+        "y": 27.8,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "39771ea5-263f-4313-8ee6-7a46c004e99f",
+          "distance": 0
+        },
+        {
+          "nodeId": "dabc6223-606d-4201-ae99-e8862052da36",
+          "distance": 0
+        },
+        {
+          "nodeId": "02cd86ba-7d7c-422c-9f72-03698840af2d",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "58724b65-1fcf-4764-93df-1380f6cf968b",
+      "name": "Hallway G12",
+      "type": "hallway",
+      "coordinates": {
+        "x": 71.93,
+        "y": 42.03,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "e6ad3470-c26f-44b8-98c8-185ed8498074",
+          "distance": 0
+        },
+        {
+          "nodeId": "abe529ff-dfc5-4e1e-89ef-ac4f37f3b0c4",
+          "distance": 0
+        },
+        {
+          "nodeId": "60ed7b55-259e-49a1-9589-1071c5867611",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "e6ad3470-c26f-44b8-98c8-185ed8498074",
+      "name": "Hallway G13",
+      "type": "hallway",
+      "coordinates": {
+        "x": 67.02,
+        "y": 46.19,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "ab2d9c7e-67f0-4b02-a127-57a204f7b964",
+          "distance": 0
+        },
+        {
+          "nodeId": "0562ed45-c662-44eb-b288-753b6e8954bc",
+          "distance": 0
+        },
+        {
+          "nodeId": "60ed7b55-259e-49a1-9589-1071c5867611",
+          "distance": 0
+        },
+        {
+          "nodeId": "58724b65-1fcf-4764-93df-1380f6cf968b",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "0562ed45-c662-44eb-b288-753b6e8954bc",
+      "name": "Hallway G14",
+      "type": "hallway",
+      "coordinates": {
+        "x": 66.87,
+        "y": 51.78,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "e6ad3470-c26f-44b8-98c8-185ed8498074",
+          "distance": 0
+        },
+        {
+          "nodeId": "12db9ab0-558d-427b-805a-3a676c88a2ec",
+          "distance": 0
+        },
+        {
+          "nodeId": "3acae3a1-cd09-48f7-8617-090145c71d0c",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "3acae3a1-cd09-48f7-8617-090145c71d0c",
+      "name": "Hallway G15",
+      "type": "hallway",
+      "coordinates": {
+        "x": 64.38,
+        "y": 53.48,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "12db9ab0-558d-427b-805a-3a676c88a2ec",
+          "distance": 0
+        },
+        {
+          "nodeId": "0562ed45-c662-44eb-b288-753b6e8954bc",
+          "distance": 0
+        },
+        {
+          "nodeId": "5eaa315d-2606-4f23-b64a-919ceb21b73d",
+          "distance": 0
+        },
+        {
+          "nodeId": "fb4af420-d743-44d2-b243-aa0b5c872b4f",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "fb4af420-d743-44d2-b243-aa0b5c872b4f",
+      "name": "Hallway G16",
+      "type": "hallway",
+      "coordinates": {
+        "x": 61.32,
+        "y": 51.17,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "9113a288-8e93-4071-b825-d9686eb2d2dd",
+          "distance": 0
+        },
+        {
+          "nodeId": "5eaa315d-2606-4f23-b64a-919ceb21b73d",
+          "distance": 0
+        },
+        {
+          "nodeId": "d646680e-b7fc-4674-b116-7d63a276f149",
+          "distance": 0
+        },
+        {
+          "nodeId": "bb313c0b-cbd5-41f9-8fa1-b3db4b3ccd61",
+          "distance": 0
+        },
+        {
+          "nodeId": "3acae3a1-cd09-48f7-8617-090145c71d0c",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "bb313c0b-cbd5-41f9-8fa1-b3db4b3ccd61",
+      "name": "Hallway G17",
+      "type": "hallway",
+      "coordinates": {
+        "x": 61.26,
+        "y": 45.67,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "d646680e-b7fc-4674-b116-7d63a276f149",
+          "distance": 0
+        },
+        {
+          "nodeId": "fb4af420-d743-44d2-b243-aa0b5c872b4f",
+          "distance": 0
+        },
+        {
+          "nodeId": "49177190-c56a-49cb-9a89-0c200d055af5",
+          "distance": 0
+        },
+        {
+          "nodeId": "ab2d9c7e-67f0-4b02-a127-57a204f7b964",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "ab2d9c7e-67f0-4b02-a127-57a204f7b964",
+      "name": "Hallway G18",
+      "type": "hallway",
+      "coordinates": {
+        "x": 63.59,
+        "y": 43.72,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "49177190-c56a-49cb-9a89-0c200d055af5",
+          "distance": 0
+        },
+        {
+          "nodeId": "bb313c0b-cbd5-41f9-8fa1-b3db4b3ccd61",
+          "distance": 0
+        },
+        {
+          "nodeId": "e6ad3470-c26f-44b8-98c8-185ed8498074",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "9113a288-8e93-4071-b825-d9686eb2d2dd",
+      "name": "Hallway G19",
+      "type": "hallway",
+      "coordinates": {
+        "x": 59.83,
+        "y": 52.2,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "b4dc3758-c0e7-47b0-9d47-0b9786229b64",
+          "distance": 0
+        },
+        {
+          "nodeId": "4f9213df-9cd1-4d6d-bdad-bd8d7f989360",
+          "distance": 0
+        },
+        {
+          "nodeId": "63748f3b-ea7d-4daf-bfd7-7ffc82974910",
+          "distance": 0
+        },
+        {
+          "nodeId": "fb4af420-d743-44d2-b243-aa0b5c872b4f",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "b4dc3758-c0e7-47b0-9d47-0b9786229b64",
+      "name": "Hallway G20",
+      "type": "hallway",
+      "coordinates": {
+        "x": 58.41,
+        "y": 52.87,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "4f9213df-9cd1-4d6d-bdad-bd8d7f989360",
+          "distance": 0
+        },
+        {
+          "nodeId": "9113a288-8e93-4071-b825-d9686eb2d2dd",
+          "distance": 0
+        },
+        {
+          "nodeId": "4e915f31-5d37-4f23-9258-8f93329b2534",
+          "distance": 0
+        },
+        {
+          "nodeId": "c0667a0f-91d3-4566-9fa6-060a707599f6",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "c0667a0f-91d3-4566-9fa6-060a707599f6",
+      "name": "Hallway G21",
+      "type": "hallway",
+      "coordinates": {
+        "x": 58.3,
+        "y": 49.36,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "4e915f31-5d37-4f23-9258-8f93329b2534",
+          "distance": 0
+        },
+        {
+          "nodeId": "b4dc3758-c0e7-47b0-9d47-0b9786229b64",
+          "distance": 0
+        },
+        {
+          "nodeId": "f7c7aeab-d549-4e6f-a5f8-724a4ab5f0c1",
+          "distance": 0
+        },
+        {
+          "nodeId": "3a272d6b-fc92-4484-89f8-638973e1da9a",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "4f9213df-9cd1-4d6d-bdad-bd8d7f989360",
+      "name": "Hallway G22",
+      "type": "hallway",
+      "coordinates": {
+        "x": 56.2,
+        "y": 55.58,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "bdeb1815-748a-4b4f-b0d0-365844314494",
+          "distance": 0
+        },
+        {
+          "nodeId": "e3639e21-e75b-437d-8fe5-772c533f1143",
+          "distance": 0
+        },
+        {
+          "nodeId": "7f35fbdb-e15e-4c24-86b3-6ab6142a3e54",
+          "distance": 0
+        },
+        {
+          "nodeId": "b4dc3758-c0e7-47b0-9d47-0b9786229b64",
+          "distance": 0
+        },
+        {
+          "nodeId": "9113a288-8e93-4071-b825-d9686eb2d2dd",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "7f35fbdb-e15e-4c24-86b3-6ab6142a3e54",
+      "name": "Hallway G23",
+      "type": "hallway",
+      "coordinates": {
+        "x": 59.31,
+        "y": 58.81,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "4f9213df-9cd1-4d6d-bdad-bd8d7f989360",
+          "distance": 0
+        },
+        {
+          "nodeId": "8a1f20a4-7b11-41fd-b0f1-101ea1930a21",
+          "distance": 0
+        },
+        {
+          "nodeId": "f3fdeee3-7bc4-4aa7-a171-bbdc7e816d3f",
+          "distance": 0
+        },
+        {
+          "nodeId": "a55d0141-ef1d-4bf3-b7a1-122528b7115c",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "f3fdeee3-7bc4-4aa7-a171-bbdc7e816d3f",
+      "name": "Hallway G24",
+      "type": "hallway",
+      "coordinates": {
+        "x": 57.89,
+        "y": 62.6,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "8a1f20a4-7b11-41fd-b0f1-101ea1930a21",
+          "distance": 0
+        },
+        {
+          "nodeId": "7f35fbdb-e15e-4c24-86b3-6ab6142a3e54",
+          "distance": 0
+        },
+        {
+          "nodeId": "a55d0141-ef1d-4bf3-b7a1-122528b7115c",
+          "distance": 0
+        },
+        {
+          "nodeId": "64f799a0-19e8-47f0-a582-e6ae13589e39",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "e3639e21-e75b-437d-8fe5-772c533f1143",
+      "name": "Hallway G25",
+      "type": "hallway",
+      "coordinates": {
+        "x": 51.92,
+        "y": 53.32,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "1101ee62-02b2-4c09-a4e1-a07dc20efa3b",
+          "distance": 0
+        },
+        {
+          "nodeId": "c6b844a7-74be-4026-9628-cd632b037d3c",
+          "distance": 0
+        },
+        {
+          "nodeId": "bdeb1815-748a-4b4f-b0d0-365844314494",
+          "distance": 0
+        },
+        {
+          "nodeId": "4f9213df-9cd1-4d6d-bdad-bd8d7f989360",
+          "distance": 0
+        },
+        {
+          "nodeId": "fb2f354a-a32a-4313-b9d9-7d238dbec1f6",
+          "distance": 0
+        },
+        {
+          "nodeId": "254810d7-dedd-4636-af34-4310ba9c22a4",
+          "distance": 0
+        },
+        {
+          "nodeId": "e9e5e0a3-b853-4765-a9eb-1faa01d551f8",
+          "distance": 0
+        },
+        {
+          "nodeId": "b98396fb-e7fa-4bfc-a2d7-a9289b724913",
+          "distance": 0
+        },
+        {
+          "nodeId": "8c593404-a21b-40a0-b928-ce3caf5c23ed",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "1101ee62-02b2-4c09-a4e1-a07dc20efa3b",
+      "name": "Hallway G26",
+      "type": "hallway",
+      "coordinates": {
+        "x": 48.65,
+        "y": 53.01,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "94bfc784-5343-433a-b137-4153705d63ac",
+          "distance": 0
+        },
+        {
+          "nodeId": "e9e5e0a3-b853-4765-a9eb-1faa01d551f8",
+          "distance": 0
+        },
+        {
+          "nodeId": "254810d7-dedd-4636-af34-4310ba9c22a4",
+          "distance": 0
+        },
+        {
+          "nodeId": "fb2f354a-a32a-4313-b9d9-7d238dbec1f6",
+          "distance": 0
+        },
+        {
+          "nodeId": "e3639e21-e75b-437d-8fe5-772c533f1143",
+          "distance": 0
+        },
+        {
+          "nodeId": "b98396fb-e7fa-4bfc-a2d7-a9289b724913",
+          "distance": 0
+        },
+        {
+          "nodeId": "8c593404-a21b-40a0-b928-ce3caf5c23ed",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "94bfc784-5343-433a-b137-4153705d63ac",
+      "name": "Hallway G27",
+      "type": "hallway",
+      "coordinates": {
+        "x": 46.03,
+        "y": 52.78,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "aa587df0-6b82-494d-8fe9-6eb535e3c0ea",
+          "distance": 0
+        },
+        {
+          "nodeId": "e9e5e0a3-b853-4765-a9eb-1faa01d551f8",
+          "distance": 0
+        },
+        {
+          "nodeId": "1101ee62-02b2-4c09-a4e1-a07dc20efa3b",
+          "distance": 0
+        },
+        {
+          "nodeId": "254810d7-dedd-4636-af34-4310ba9c22a4",
+          "distance": 0
+        },
+        {
+          "nodeId": "b0e22d5c-e2c7-4568-bf08-8ca73a381f59",
+          "distance": 0
+        },
+        {
+          "nodeId": "fb2f354a-a32a-4313-b9d9-7d238dbec1f6",
+          "distance": 0
+        },
+        {
+          "nodeId": "8c593404-a21b-40a0-b928-ce3caf5c23ed",
+          "distance": 0
+        },
+        {
+          "nodeId": "b98396fb-e7fa-4bfc-a2d7-a9289b724913",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "a609653a-bd07-4b21-84cf-6a9bb9506076",
+      "name": "Hallway G28",
+      "type": "hallway",
+      "coordinates": {
+        "x": 41.75,
+        "y": 55.65,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "a6c09e11-2639-45c5-a53a-ed9bdbe461d4",
+          "distance": 0
+        },
+        {
+          "nodeId": "537889dc-625b-4eea-8964-112f994267fb",
+          "distance": 0
+        },
+        {
+          "nodeId": "aa587df0-6b82-494d-8fe9-6eb535e3c0ea",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "b0e22d5c-e2c7-4568-bf08-8ca73a381f59",
+      "name": "Hallway G29",
+      "type": "hallway",
+      "coordinates": {
+        "x": 44.08,
+        "y": 48,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "aa587df0-6b82-494d-8fe9-6eb535e3c0ea",
+          "distance": 0
+        },
+        {
+          "nodeId": "fb2f354a-a32a-4313-b9d9-7d238dbec1f6",
+          "distance": 0
+        },
+        {
+          "nodeId": "94bfc784-5343-433a-b137-4153705d63ac",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "010f046d-36d0-4821-85d7-7f1f184fdaec",
+      "name": "Hallway G30",
+      "type": "hallway",
+      "coordinates": {
+        "x": 53.6,
+        "y": 47.61,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "fb2f354a-a32a-4313-b9d9-7d238dbec1f6",
+          "distance": 0
+        },
+        {
+          "nodeId": "bdeb1815-748a-4b4f-b0d0-365844314494",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "bdeb1815-748a-4b4f-b0d0-365844314494",
+      "name": "Hallway G31",
+      "type": "hallway",
+      "coordinates": {
+        "x": 53.67,
+        "y": 51.22,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "e3639e21-e75b-437d-8fe5-772c533f1143",
+          "distance": 0
+        },
+        {
+          "nodeId": "010f046d-36d0-4821-85d7-7f1f184fdaec",
+          "distance": 0
+        },
+        {
+          "nodeId": "4f9213df-9cd1-4d6d-bdad-bd8d7f989360",
+          "distance": 0
+        },
+        {
+          "nodeId": "b98396fb-e7fa-4bfc-a2d7-a9289b724913",
+          "distance": 0
+        },
+        {
+          "nodeId": "c6b844a7-74be-4026-9628-cd632b037d3c",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "aa587df0-6b82-494d-8fe9-6eb535e3c0ea",
+      "name": "Hallway G32",
+      "type": "hallway",
+      "coordinates": {
+        "x": 44.23,
+        "y": 52.49,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "a609653a-bd07-4b21-84cf-6a9bb9506076",
+          "distance": 0
+        },
+        {
+          "nodeId": "b0e22d5c-e2c7-4568-bf08-8ca73a381f59",
+          "distance": 0
+        },
+        {
+          "nodeId": "8c593404-a21b-40a0-b928-ce3caf5c23ed",
+          "distance": 0
+        },
+        {
+          "nodeId": "94bfc784-5343-433a-b137-4153705d63ac",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "537889dc-625b-4eea-8964-112f994267fb",
+      "name": "Hallway G33",
+      "type": "hallway",
+      "coordinates": {
+        "x": 38.8,
+        "y": 59.39,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "a609653a-bd07-4b21-84cf-6a9bb9506076",
+          "distance": 0
+        },
+        {
+          "nodeId": "f0f34371-141a-49e3-856e-ec34b032593c",
+          "distance": 0
+        },
+        {
+          "nodeId": "07d8dc28-903e-4ce5-8f97-58dd5386c4a7",
+          "distance": 0
+        },
+        {
+          "nodeId": "7a0d4f4f-f1c6-4fbb-8dc8-e5f12c07e95f",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "7a0d4f4f-f1c6-4fbb-8dc8-e5f12c07e95f",
+      "name": "Hallway G34",
+      "type": "hallway",
+      "coordinates": {
+        "x": 39.8,
+        "y": 62.39,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "f0f34371-141a-49e3-856e-ec34b032593c",
+          "distance": 0
+        },
+        {
+          "nodeId": "07d8dc28-903e-4ce5-8f97-58dd5386c4a7",
+          "distance": 0
+        },
+        {
+          "nodeId": "01ee1e7d-5707-4ea6-b1e8-e685f903ad58",
+          "distance": 0
+        },
+        {
+          "nodeId": "537889dc-625b-4eea-8964-112f994267fb",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "a6c09e11-2639-45c5-a53a-ed9bdbe461d4",
+      "name": "Hallway G35",
+      "type": "hallway",
+      "coordinates": {
+        "x": 38.86,
+        "y": 53.15,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "ed486909-ee74-4644-a725-901859e3458d",
+          "distance": 0
+        },
+        {
+          "nodeId": "7fb1eab0-fdad-44b0-ae8c-302cf68a0752",
+          "distance": 0
+        },
+        {
+          "nodeId": "a609653a-bd07-4b21-84cf-6a9bb9506076",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "ed486909-ee74-4644-a725-901859e3458d",
+      "name": "Hallway G36",
+      "type": "hallway",
+      "coordinates": {
+        "x": 36.72,
+        "y": 50.71,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "1a9c55a1-4ed6-4a7c-9ce0-45be4c327d5d",
+          "distance": 0
+        },
+        {
+          "nodeId": "b5d018d9-86d9-4589-9f66-72a0163d515f",
+          "distance": 0
+        },
+        {
+          "nodeId": "56f9e57d-7a63-4f97-b2e3-bef7ae06b7c5",
+          "distance": 0
+        },
+        {
+          "nodeId": "a6c09e11-2639-45c5-a53a-ed9bdbe461d4",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "b5d018d9-86d9-4589-9f66-72a0163d515f",
+      "name": "Hallway G37",
+      "type": "hallway",
+      "coordinates": {
+        "x": 33.51,
+        "y": 53.55,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "4c9d29e2-a519-4619-9329-d19f498e3628",
+          "distance": 0
+        },
+        {
+          "nodeId": "955e52d9-af7c-459c-98fe-1774d3eac5d6",
+          "distance": 0
+        },
+        {
+          "nodeId": "1a9c55a1-4ed6-4a7c-9ce0-45be4c327d5d",
+          "distance": 0
+        },
+        {
+          "nodeId": "ed486909-ee74-4644-a725-901859e3458d",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "955e52d9-af7c-459c-98fe-1774d3eac5d6",
+      "name": "Hallway G38",
+      "type": "hallway",
+      "coordinates": {
+        "x": 31.04,
+        "y": 51.68,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "40c8f9ce-7e22-43f6-9168-5aac69707402",
+          "distance": 0
+        },
+        {
+          "nodeId": "4c9d29e2-a519-4619-9329-d19f498e3628",
+          "distance": 0
+        },
+        {
+          "nodeId": "b5d018d9-86d9-4589-9f66-72a0163d515f",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "40c8f9ce-7e22-43f6-9168-5aac69707402",
+      "name": "Hallway G39",
+      "type": "hallway",
+      "coordinates": {
+        "x": 31.11,
+        "y": 46.76,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "79486617-8710-421d-b353-dac930d73ee7",
+          "distance": 0
+        },
+        {
+          "nodeId": "7838d73f-d3f2-4876-93fe-94bd99f70e46",
+          "distance": 0
+        },
+        {
+          "nodeId": "14bd8cab-21df-46c9-bbb3-fcd8d9df9473",
+          "distance": 0
+        },
+        {
+          "nodeId": "575a9f07-6911-4384-92d6-be27cf17cde6",
+          "distance": 0
+        },
+        {
+          "nodeId": "955e52d9-af7c-459c-98fe-1774d3eac5d6",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "575a9f07-6911-4384-92d6-be27cf17cde6",
+      "name": "Hallway G40",
+      "type": "hallway",
+      "coordinates": {
+        "x": 34.51,
+        "y": 43.99,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "14bd8cab-21df-46c9-bbb3-fcd8d9df9473",
+          "distance": 0
+        },
+        {
+          "nodeId": "40c8f9ce-7e22-43f6-9168-5aac69707402",
+          "distance": 0
+        },
+        {
+          "nodeId": "ce5b3099-d473-4529-9c35-787a9ca76c27",
+          "distance": 0
+        },
+        {
+          "nodeId": "56f9e57d-7a63-4f97-b2e3-bef7ae06b7c5",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "56f9e57d-7a63-4f97-b2e3-bef7ae06b7c5",
+      "name": "Hallway G41",
+      "type": "hallway",
+      "coordinates": {
+        "x": 36.74,
+        "y": 45.7,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "ed486909-ee74-4644-a725-901859e3458d",
+          "distance": 0
+        },
+        {
+          "nodeId": "ce5b3099-d473-4529-9c35-787a9ca76c27",
+          "distance": 0
+        },
+        {
+          "nodeId": "575a9f07-6911-4384-92d6-be27cf17cde6",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "79486617-8710-421d-b353-dac930d73ee7",
+      "name": "Hallway G42",
+      "type": "hallway",
+      "coordinates": {
+        "x": 28.25,
+        "y": 44.38,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "09432ed7-ceed-4df7-9676-3600a381ca1f",
+          "distance": 0
+        },
+        {
+          "nodeId": "7838d73f-d3f2-4876-93fe-94bd99f70e46",
+          "distance": 0
+        },
+        {
+          "nodeId": "40c8f9ce-7e22-43f6-9168-5aac69707402",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "87d820fe-974b-41c0-b430-1ec6210ded86",
+      "name": "Hallway G43",
+      "type": "hallway",
+      "coordinates": {
+        "x": 26.03,
+        "y": 33.92,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "7cefb87a-82b6-412d-92f9-794070d23ac8",
+          "distance": 0
+        },
+        {
+          "nodeId": "70ba01af-d686-4d09-8c04-56e3b2d02762",
+          "distance": 0
+        },
+        {
+          "nodeId": "80c94669-800a-4465-9f3c-dcd100f879fd",
+          "distance": 0
+        },
+        {
+          "nodeId": "09432ed7-ceed-4df7-9676-3600a381ca1f",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "70ba01af-d686-4d09-8c04-56e3b2d02762",
+      "name": "Hallway G44",
+      "type": "hallway",
+      "coordinates": {
+        "x": 23.09,
+        "y": 31.52,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "87d820fe-974b-41c0-b430-1ec6210ded86",
+          "distance": 0
+        },
+        {
+          "nodeId": "80c94669-800a-4465-9f3c-dcd100f879fd",
+          "distance": 0
+        },
+        {
+          "nodeId": "41451d97-fb10-47fa-a5ed-5dc72c3ad2ea",
+          "distance": 0
+        },
+        {
+          "nodeId": "eebf9f0d-aa30-4fe4-9eb3-153480032fd0",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "eebf9f0d-aa30-4fe4-9eb3-153480032fd0",
+      "name": "Hallway G45",
+      "type": "hallway",
+      "coordinates": {
+        "x": 22.99,
+        "y": 27.55,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "310728b1-31de-4eaa-82ba-2c0949233847",
+          "distance": 0
+        },
+        {
+          "nodeId": "41451d97-fb10-47fa-a5ed-5dc72c3ad2ea",
+          "distance": 0
+        },
+        {
+          "nodeId": "70ba01af-d686-4d09-8c04-56e3b2d02762",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "310728b1-31de-4eaa-82ba-2c0949233847",
+      "name": "Hallway G46",
+      "type": "hallway",
+      "coordinates": {
+        "x": 26.45,
+        "y": 24.89,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "44588c8b-bdcf-47fb-9d4c-fde30fc3f6d3",
+          "distance": 0
+        },
+        {
+          "nodeId": "eebf9f0d-aa30-4fe4-9eb3-153480032fd0",
+          "distance": 0
+        },
+        {
+          "nodeId": "1f269073-48ec-4bd6-a38c-92903db710ba",
+          "distance": 0
+        },
+        {
+          "nodeId": "491c74a8-eb03-47ed-b243-fd373e644e74",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "491c74a8-eb03-47ed-b243-fd373e644e74",
+      "name": "Hallway G47",
+      "type": "hallway",
+      "coordinates": {
+        "x": 29.45,
+        "y": 27.91,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "1f269073-48ec-4bd6-a38c-92903db710ba",
+          "distance": 0
+        },
+        {
+          "nodeId": "310728b1-31de-4eaa-82ba-2c0949233847",
+          "distance": 0
+        },
+        {
+          "nodeId": "12319d60-8368-46c4-9ebb-164e342e3ba5",
+          "distance": 0
+        },
+        {
+          "nodeId": "7cefb87a-82b6-412d-92f9-794070d23ac8",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "7cefb87a-82b6-412d-92f9-794070d23ac8",
+      "name": "Hallway G48",
+      "type": "hallway",
+      "coordinates": {
+        "x": 29.25,
+        "y": 31.58,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "12319d60-8368-46c4-9ebb-164e342e3ba5",
+          "distance": 0
+        },
+        {
+          "nodeId": "491c74a8-eb03-47ed-b243-fd373e644e74",
+          "distance": 0
+        },
+        {
+          "nodeId": "87d820fe-974b-41c0-b430-1ec6210ded86",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "44588c8b-bdcf-47fb-9d4c-fde30fc3f6d3",
+      "name": "Hallway G49",
+      "type": "hallway",
+      "coordinates": {
+        "x": 26.25,
+        "y": 22.53,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "77f04938-aa49-4ad4-aa78-9dc30bdae16d",
+          "distance": 0
+        },
+        {
+          "nodeId": "12597d6b-0b1b-4f2b-bf8b-6d3ffd2200bf",
+          "distance": 0
+        },
+        {
+          "nodeId": "310728b1-31de-4eaa-82ba-2c0949233847",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "77f04938-aa49-4ad4-aa78-9dc30bdae16d",
+      "name": "Hallway G50",
+      "type": "hallway",
+      "coordinates": {
+        "x": 26.48,
+        "y": 19.88,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "75b58204-2ef4-4b87-8c87-c9d1954c71df",
+          "distance": 0
+        },
+        {
+          "nodeId": "67fb814c-0ac3-4f3e-bbde-fb7428284312",
+          "distance": 0
+        },
+        {
+          "nodeId": "44588c8b-bdcf-47fb-9d4c-fde30fc3f6d3",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "22123e29-3a48-4ef5-be04-6f9335b27f18",
+      "name": "Hallway G51",
+      "type": "hallway",
+      "coordinates": {
+        "x": 23.85,
+        "y": 22.49,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "67fb814c-0ac3-4f3e-bbde-fb7428284312",
+          "distance": 0
+        },
+        {
+          "nodeId": "891317df-5844-415a-a356-7aee6d56c98a",
+          "distance": 0
+        },
+        {
+          "nodeId": "49cb00e7-f70a-4ad0-a791-267160648a29",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "75b58204-2ef4-4b87-8c87-c9d1954c71df",
+      "name": "Hallway G52",
+      "type": "hallway",
+      "coordinates": {
+        "x": 25.8,
+        "y": 16.74,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "8d071ef9-138a-46b8-82fd-776ae7b7b6e2",
+          "distance": 0
+        },
+        {
+          "nodeId": "1296aae6-801a-4444-9415-ed86d164b353",
+          "distance": 0
+        },
+        {
+          "nodeId": "77f04938-aa49-4ad4-aa78-9dc30bdae16d",
+          "distance": 0
+        }
+      ]
+    },
+    {
+      "nodeId": "8d071ef9-138a-46b8-82fd-776ae7b7b6e2",
+      "name": "Hallway G53",
+      "type": "hallway",
+      "coordinates": {
+        "x": 23.5,
+        "y": 13.93,
+        "floor": "01a9fac3-543e-413d-80d9-29565c67c2a8"
+      },
+      "connections": [
+        {
+          "nodeId": "7dbfaa73-a405-4224-b06c-aaeda17a4fef",
+          "distance": 0
+        },
+        {
+          "nodeId": "75b58204-2ef4-4b87-8c87-c9d1954c71df",
+          "distance": 0
+        }
+      ]
+    }
+  ]
 }
 
   ],
   "connections": [
-    
+    {
+      "from": "67fb814c-0ac3-4f3e-bbde-fb7428284312",
+      "to": "4268e92d-afdd-4c81-a5a8-4c7b69ecac18",
+      "distance": 5,
+      "type": "elevator",
+      "label": "ELEVATOR G1 ↔ ELEVATOR 8"
+    },
+    {
+      "from": "12597d6b-0b1b-4f2b-bf8b-6d3ffd2200bf",
+      "to": "5d9391a2-db92-4834-bdf0-a8040fd6b016",
+      "distance": 5,
+      "type": "elevator",
+      "label": "ELEVATOR G2 ↔ ELEVATOR 7"
+    },
+    {
+      "from": "01ee1e7d-5707-4ea6-b1e8-e685f903ad58",
+      "to": "75d35342-6066-447c-b6d4-c544ccfe7415",
+      "distance": 5,
+      "type": "elevator",
+      "label": "ELEVATOR G3 ↔ ELEVATOR 6(STAFF)"
+    },
+    {
+      "from": "64f799a0-19e8-47f0-a582-e6ae13589e39",
+      "to": "80d54fd5-d1e6-498e-87f4-2b061c077554",
+      "distance": 5,
+      "type": "elevator",
+      "label": "ELEVATOR G4 ↔ ELEVATOR 5(STAFF)"
+    },
+    {
+      "from": "4e915f31-5d37-4f23-9258-8f93329b2534",
+      "to": "7047ce86-2a34-4fef-95b0-a4c4d0737a40",
+      "distance": 5,
+      "type": "elevator",
+      "label": "ELEVATOR G5 ↔ ELEVATOR 4"
+    },
+    {
+      "from": "63748f3b-ea7d-4daf-bfd7-7ffc82974910",
+      "to": "65ccbe89-0bd0-4086-b127-a9f013a54d38",
+      "distance": 5,
+      "type": "elevator",
+      "label": "ELEVATOR G6 ↔ ELEVATOR 3"
+    },
+    {
+      "from": "fa4a46d4-1e0c-456c-af72-83b316f2052a",
+      "to": "56f96eb9-bca9-40f0-a4ee-dab282daa5f9",
+      "distance": 5,
+      "type": "elevator",
+      "label": "ELEVATOR G7 ↔ ELEVATOR 2"
+    },
+    {
+      "from": "3112f005-a45c-45d9-b30a-fb7f27eda0d1",
+      "to": "d295d357-5d4f-4767-8673-6a5b3b1f590b",
+      "distance": 5,
+      "type": "elevator",
+      "label": "ELEVATOR G8 ↔ ELEVATOR 1"
+    },
+    {
+      "from": "49cb00e7-f70a-4ad0-a791-267160648a29",
+      "to": "c82901cf-eda1-47f0-a1f5-20908e2c18e9",
+      "distance": 10,
+      "type": "stairs",
+      "label": "STAIR G1 ↔ STAIR 9"
+    },
+    {
+      "from": "891317df-5844-415a-a356-7aee6d56c98a",
+      "to": "7a571fd3-1641-45a7-9079-1adfde47292b",
+      "distance": 10,
+      "type": "stairs",
+      "label": "STAIR G2 ↔ STAIR 10"
+    },
+    {
+      "from": "07d8dc28-903e-4ce5-8f97-58dd5386c4a7",
+      "to": "294e638c-ead1-45e1-8fd9-f624743d24d5",
+      "distance": 10,
+      "type": "stairs",
+      "label": "STAIR G3 ↔ STAIR 8"
+    },
+    {
+      "from": "07d8dc28-903e-4ce5-8f97-58dd5386c4a7",
+      "to": "294e638c-ead1-45e1-8fd9-f624743d24d5",
+      "distance": 10,
+      "type": "stairs",
+      "label": "STAIR G3 ↔ STAIR 7"
+    },
+    {
+      "from": "a55d0141-ef1d-4bf3-b7a1-122528b7115c",
+      "to": "046696f1-7fe5-4466-9304-9dcfcc807c5d",
+      "distance": 10,
+      "type": "stairs",
+      "label": "STAIR G6 ↔ STAIR 5"
+    },
+    {
+      "from": "a55d0141-ef1d-4bf3-b7a1-122528b7115c",
+      "to": "249f9201-3a63-41d3-8263-cc61bf06ebf4",
+      "distance": 10,
+      "type": "stairs",
+      "label": "STAIR G6 ↔ STAIR 6"
+    },
+    {
+      "from": "f7c7aeab-d549-4e6f-a5f8-724a4ab5f0c1",
+      "to": "695d2a9a-a82f-4c86-8283-0b796df1e641",
+      "distance": 10,
+      "type": "stairs",
+      "label": "STAIR G7 ↔ STAIR 3"
+    },
+    {
+      "from": "3a272d6b-fc92-4484-89f8-638973e1da9a",
+      "to": "d266bbe3-d518-49be-8eaa-61b37e863222",
+      "distance": 10,
+      "type": "stairs",
+      "label": "STAIR G8 ↔ STAIR 4"
+    },
+    {
+      "from": "e2e17911-5d96-48d2-8fcc-4b2e5c1b2c33",
+      "to": "985296b4-2471-416a-87bf-bb0e66438021",
+      "distance": 10,
+      "type": "stairs",
+      "label": "STAIR G9 ↔ STAIR 1"
+    },
+    {
+      "from": "09bfae64-6acd-4d40-b53b-dc8a0bf468ec",
+      "to": "c93599ac-21ae-40f7-a191-787b4c5cf801",
+      "distance": 10,
+      "type": "stairs",
+      "label": "STAIR G10 ↔ STAIR 2"
+    }
   ]
 }

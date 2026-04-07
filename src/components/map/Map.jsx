@@ -13,9 +13,11 @@ import MarkerLayer from "./Marker";
 import RoutePolyline from "./RoutePolyline";
 import { floorDimensions } from "../../utils/mapConfig";
 import { mapToGridCoords, clampGridPoint } from "../../utils/transformCoords";
-import academicGround from "../../assets/final maps/PRP/main-compressed.svg";
+import firstFloor from "../../assets/final maps/PRP/main-compressed.svg";
+import groundFloor from "../../assets/final maps/PRP/prpground_final_compressed.svg";
 const floorImages = {
-  "586f40cd-8306-4040-88c9-e3f61b8e098d": academicGround, 
+  "586f40cd-8306-4040-88c9-e3f61b8e098d": firstFloor, 
+  "01a9fac3-543e-413d-80d9-29565c67c2a8": groundFloor,
 };
 const AutoFitImage = ({ bounds }) => {
   const map = useMap();
@@ -79,7 +81,7 @@ const Map = ({
     offsetX: 0,
     offsetY: 0,
   });
-  const image = floorImages[currentFloor?.id] || academicGround;
+  const image = floorImages[currentFloor?.id] || firstFloor;
   const { width, height } =
     floorDimensions[currentFloor?.id] || { width: 2000, height: 3000 };
   const bounds = useMemo(

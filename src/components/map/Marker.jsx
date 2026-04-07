@@ -79,8 +79,8 @@ const MarkerLayer = ({
           radius = 10;
           visible = true;
         } else if (isRoom) {
-          color = "#00ff9f88";
-          radius = 5;
+          color = "#ffffff33";
+          radius = 4;
         }
 
         const tooltip = (node.name && !node.name.startsWith("Node")) ? node.name : null;
