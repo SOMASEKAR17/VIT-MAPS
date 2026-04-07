@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useCallback, useMemo } from "react";
+import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 const Map = dynamic(() => import("../../components/map/Map"), { ssr: false });
 import SearchBar from "../../components/search/SearchBar";
@@ -26,6 +27,23 @@ const Home = () => {
   const [searchMode, setSearchMode] = useState("setLocation"); 
   const [selectedAlgorithm, setSelectedAlgorithm] = useState("dijkstra");
   const [benchmarks, setBenchmarks] = useState({});
+  const [isMobile, setIsMobile] = useState(false);
+  const [isSidebarMinimized, setIsSidebarMinimized] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isNavigating) {
+      setIsSidebarMinimized(true);
+    } else {
+      setIsSidebarMinimized(false);
+    }
+  }, [isNavigating]);
   useEffect(() => {
     const { floors } = projectSchema;
     setFloors(floors);
@@ -180,9 +198,34 @@ const Home = () => {
 
   if (showSplash) return <SplashScreen />;
   return (
-    <div className="flex flex-col-reverse md:flex-row w-full h-[100dvh] bg-background text-foreground overflow-hidden font-sans">
-      <aside className="w-full md:w-96 h-[45vh] md:h-auto flex flex-col bg-surface border-t md:border-t-0 md:border-r border-border-custom z-[50000] shadow-[0_-10px_40px_rgba(0,0,0,0.5)] md:shadow-glass flex-shrink-0 relative">
-        <div className="p-4 md:p-6 space-y-4 md:space-y-8 flex flex-col h-full overflow-hidden">
+    <div className="flex flex-col-reverse md:flex-row w-full h-[100dvh] bg-background text-foreground overflow-hidden font-sans relative">
+      <motion.aside 
+        drag={isMobile ? "y" : false}
+        dragConstraints={{ top: 0 }}
+        dragElastic={0.2}
+        onDragEnd={(e, info) => {
+          if (!isMobile) return;
+          if (info.offset.y > 50 || info.velocity.y > 200) {
+            setIsSidebarMinimized(true);
+          } else if (info.offset.y < -20 || info.velocity.y < -200) {
+            setIsSidebarMinimized(false);
+          }
+        }}
+        animate={{ 
+          y: isMobile && isSidebarMinimized ? "calc(100% - 32px)" : 0 
+        }}
+        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+        className="w-full md:w-96 absolute bottom-0 md:relative h-[55vh] md:h-auto flex flex-col bg-surface border-t md:border-t-0 md:border-r border-border-custom z-[50000] shadow-[0_-10px_40px_rgba(0,0,0,0.5)] md:shadow-glass flex-shrink-0 rounded-t-3xl md:rounded-none touch-none md:touch-auto"
+      >
+        {/* Drag Handle (Mobile only) */}
+        <div 
+          className="w-full flex justify-center pt-3 pb-1 md:hidden cursor-pointer flex-shrink-0"
+          onClick={() => setIsSidebarMinimized(!isSidebarMinimized)}
+        >
+          <div className="w-12 h-1.5 bg-white/20 hover:bg-white/40 transition-colors rounded-full" />
+        </div>
+
+        <div className="px-4 md:px-6 pb-4 md:pb-6 pt-1 md:pt-6 space-y-4 md:space-y-8 flex flex-col h-full overflow-hidden">
           <div className="space-y-0.5 md:space-y-1 flex-shrink-0">
             <h1 className="text-3xl md:text-4xl font-bruno tracking-tighter text-accent inline-block">vitMaps</h1>
             <div className="text-[9px] md:text-[10px] font-bebas tracking-[0.3em] text-gray-500 uppercase">Indoor Navigation Suite</div>
@@ -245,9 +288,9 @@ const Home = () => {
         <div className="mt-auto p-3 md:p-4 border-t border-border-custom hidden md:block">
             <Footer />
         </div>
-      </aside>
+      </motion.aside>
 
-      <main className="flex-1 relative z-10 bg-[#0a0a0a]">
+      <main className="flex-1 w-full h-full relative z-10 bg-[#0a0a0a]">
         <Map
           userLocation={userLoc}
           Endnode={endNode?.nodeId}
