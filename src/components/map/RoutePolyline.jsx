@@ -18,6 +18,8 @@ const RoutePolyline = ({ route = [], currentFloor }) => {
       weight: 6,
       opacity: 0.9,
       smoothFactor: 2.0, 
+      lineCap: 'round',
+      lineJoin: 'round',
       className: 'neon-glow-line' 
     }).addTo(map);
     return () => {

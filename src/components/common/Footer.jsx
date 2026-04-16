@@ -42,7 +42,7 @@ const Footer = () => {
               <span>How to Navigate</span>
             </button>
             <a
-              href="https://forms.gle/vbZHzFdV8WAhCZEDA"
+              href="" //https://somasekar.vercel.app/contact
               target="_blank"
               rel="noreferrer"
               className="flex-1 flex items-center justify-center gap-2 bg-white/5 border border-border-custom hover:neon-border text-gray-300 py-2 rounded-xl transition text-xs"
