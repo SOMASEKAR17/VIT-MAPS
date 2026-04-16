@@ -144,8 +144,6 @@ const Home = () => {
   };
   const handleDestSelect = (node) => {
     setEndNode(node);
-    const floorObj = floors.find((f) => f.id === node.floorId);
-    if (floorObj) setCurrentFloor(floorObj);
 
     try {
       localStorage.setItem("vitmaps_endNode", JSON.stringify(node));
@@ -155,6 +153,8 @@ const Home = () => {
       setIsNavigating(false);
       setRoute([]);
       setBenchmarks({});
+      const floorObj = floors.find((f) => f.id === node.floorId);
+      if (floorObj) setCurrentFloor(floorObj);
       return; 
     }
 
@@ -167,10 +167,9 @@ const Home = () => {
     setRoute(path);
     setIsNavigating(true);
 
-    const segments = splitPathByFloor(path);
-    const currentSeg = segments.find(s => s.floor === currentFloor?.id || s.floor === floorObj?.id);
-    if (!currentSeg && segments.length > 0) {
-      setCurrentFloor(floors.find(f => f.id === segments[0].floor));
+    const startFloorObj = floors.find(f => f.id === startNode.floorId);
+    if (startFloorObj) {
+      setCurrentFloor(startFloorObj);
     }
   };
   const handleResetUserLocation = useCallback(() => {
