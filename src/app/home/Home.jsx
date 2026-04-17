@@ -29,7 +29,7 @@ const Home = () => {
   const [selectedAlgorithm, setSelectedAlgorithm] = useState("dijkstra");
   const [benchmarks, setBenchmarks] = useState({});
   const [isMobile, setIsMobile] = useState(false);
-  const [sidebarState, setSidebarState] = useState("half"); // "minimized", "half", "full"
+  const [sidebarState, setSidebarState] = useState("half"); 
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -158,11 +158,11 @@ const Home = () => {
       return; 
     }
 
-    // Run ALL algorithms and benchmark them
+    
     const results = benchmarkAllAlgorithms(projectSchema, startNode.nodeId, node.nodeId);
     setBenchmarks(results);
 
-    // Use selected algorithm's path for the map
+    
     const path = results[selectedAlgorithm]?.path || [];
     setRoute(path);
     setIsNavigating(true);
@@ -220,7 +220,7 @@ const Home = () => {
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
         className="w-full md:w-96 absolute bottom-0 md:relative flex flex-col bg-surface border-t md:border-t-0 md:border-r border-border-custom z-[50000] shadow-[0_-10px_40px_rgba(0,0,0,0.5)] md:shadow-glass flex-shrink-0 rounded-t-3xl md:rounded-none touch-none md:touch-auto overflow-hidden"
       >
-        {/* Drag Handle (Mobile only) */}
+        {}
         <div 
           className="w-full flex items-center justify-between px-6 h-[40px] md:hidden cursor-pointer flex-shrink-0"
           onClick={() => setSidebarState(prev => prev === "minimized" ? "half" : "minimized")}

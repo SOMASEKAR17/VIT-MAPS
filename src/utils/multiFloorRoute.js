@@ -10,7 +10,7 @@ export function findMultiFloorPath(projectSchema, startId, endId, algorithmKey =
     }))
   );
 
-  // Build global connection list
+  
   const allConnections = [];
   for (const floor of projectSchema.floors) {
     for (const node of floor.nodes) {
@@ -33,12 +33,12 @@ export function findMultiFloorPath(projectSchema, startId, endId, algorithmKey =
 
   const nodeMap = new Map(allNodes.map(n => [n.nodeId, n]));
 
-  // Global pathfinding across all floors using the selected algorithm
+  
   const globalPath = (() => {
-    // Build a synthetic node list with cross-floor connections baked in
+    
     const syntheticNodes = allNodes.map(n => {
       const existingConnections = [...(n.connections || [])];
-      // Add any cross-floor connections
+      
       for (const c of allConnections) {
         if (c.from === n.nodeId && !existingConnections.find(ec => ec.nodeId === c.to)) {
           existingConnections.push({ nodeId: c.to, distance: c.distance });
@@ -58,7 +58,7 @@ export function findMultiFloorPath(projectSchema, startId, endId, algorithmKey =
     return [];
   }
 
-  // Restore floorId on each node
+  
   const fullPath = globalPath.map(n => ({
     ...n,
     floorId: nodeMap.get(n.nodeId)?.floorId || n.floorId,
@@ -66,7 +66,7 @@ export function findMultiFloorPath(projectSchema, startId, endId, algorithmKey =
 
   console.log(`✅ [${ALGORITHMS[algorithmKey]?.name || "Dijkstra"} Multi-Floor Path]`, fullPath.map(n => n.name));
 
-  // Split by floor segments
+  
   const splitByFloor = [];
   let currentSegment = { floor: fullPath[0].floorId, nodes: [] };
   for (let i = 0; i < fullPath.length; i++) {
@@ -79,7 +79,7 @@ export function findMultiFloorPath(projectSchema, startId, endId, algorithmKey =
   }
   splitByFloor.push(currentSegment);
 
-  // Refine each floor segment using the same algorithm
+  
   const refinedSegments = splitByFloor.map(seg => {
     if (seg.nodes.length <= 1) return seg;
     const floorNodes = allNodes.filter(n => n.floorId === seg.floor);
@@ -96,10 +96,6 @@ export function findMultiFloorPath(projectSchema, startId, endId, algorithmKey =
   return refinedPath;
 }
 
-/**
- * Runs every registered algorithm and returns benchmark results.
- * Returns: { [algorithmKey]: { timeMs, pathLength, path } }
- */
 export function benchmarkAllAlgorithms(projectSchema, startId, endId) {
   const results = {};
   for (const key of Object.keys(ALGORITHMS)) {

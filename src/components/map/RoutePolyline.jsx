@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import L from "leaflet";
 import { gridToMapCoords } from "../../utils/transformCoords";
 
-// Helper function to smooth out polyline sharp corners
+
 const getSmoothLine = (points, radius = 60, resolution = 15) => {
   if (points.length < 3) return points;
   const smoothPoints = [points[0]];
@@ -22,7 +22,7 @@ const getSmoothLine = (points, radius = 60, resolution = 15) => {
     
     if (len1 === 0 || len2 === 0) continue;
     
-    // The smoothing radius should not exceed half the length of the shortest segment
+    
     const appliedRadius = Math.min(radius, len1 * 0.45, len2 * 0.45);
     
     const cp1 = [p1[0] + (v1[0] / len1) * appliedRadius, p1[1] + (v1[1] / len1) * appliedRadius];

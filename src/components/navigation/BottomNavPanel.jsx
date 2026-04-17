@@ -28,7 +28,7 @@ const BottomNavPanel = ({
   const currentSegmentIndex = segments.findIndex(seg => String(seg.floor) === String(currentFloor));
   const isMultiFloor = segments.length > 1;
 
-  // Find transition nodes (elevator/stair) for the current segment
+  
   const findTransitionNode = (nodes, direction) => {
     const isTransition = (n) => {
       const type = n.type?.toLowerCase() || "";
@@ -210,7 +210,7 @@ const BottomNavPanel = ({
               ))}
             </div>
 
-            {/* Next floor button (Desktop) */}
+            {}
             <div className="flex-shrink-0 hidden md:block order-3">
               {nextSegment ? (
                 <button
@@ -223,7 +223,7 @@ const BottomNavPanel = ({
               ) : <div className="w-auto" />}
             </div>
 
-            {/* Reset Location Button */}
+            {}
             <div className="flex-shrink-0 flex order-4 absolute right-4 top-4 md:relative md:right-0 md:top-0">
                <button 
                   onClick={onResetLocation}
@@ -235,7 +235,7 @@ const BottomNavPanel = ({
             </div>
           </div>
 
-          {/* Floor indicator for multi-floor routes */}
+          {}
           {isMultiFloor && (
             <div className="flex items-center justify-center gap-1.5 mt-3 pt-3 border-t border-white/5">
               {segments.map((seg, idx) => (

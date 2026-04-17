@@ -1,12 +1,5 @@
-/**
- * Collection of shortest-path algorithms for indoor navigation.
- * Each algorithm exports a function with the same signature:
- *   (startId, endId, nodes) => Node[]
- *
- * `nodes` is a flat array of node objects with `nodeId`, `connections[]`, and `coordinates`.
- */
 
-// ─── Helpers ───────────────────────────────────────────────────────────────
+
 function buildPath(prev, endId, nodeMap) {
   const path = [];
   let walker = endId;
@@ -32,7 +25,7 @@ function buildAdjacency(nodes) {
   return { nodeMap, adj };
 }
 
-// ─── 1. Dijkstra ──────────────────────────────────────────────────────────
+
 export function dijkstra(startId, endId, nodes) {
   const { nodeMap, adj } = buildAdjacency(nodes);
   const dist = {};
@@ -61,7 +54,7 @@ export function dijkstra(startId, endId, nodes) {
   return buildPath(prev, endId, nodeMap);
 }
 
-// ─── 2. A* (A-Star) ──────────────────────────────────────────────────────
+
 function heuristic(a, b) {
   if (!a?.coordinates || !b?.coordinates) return 0;
   const dx = a.coordinates.x - b.coordinates.x;
@@ -85,7 +78,7 @@ export function aStar(startId, endId, nodes) {
   fScore[startId] = heuristic(nodeMap.get(startId), endNode);
 
   while (openSet.size > 0) {
-    // Pick node in openSet with lowest fScore
+    
     let current = null;
     let lowestF = Infinity;
     for (const id of openSet) {
@@ -110,7 +103,7 @@ export function aStar(startId, endId, nodes) {
   return buildPath(prev, endId, nodeMap);
 }
 
-// ─── 3. BFS (Unweighted — fewest hops) ───────────────────────────────────
+
 export function bfs(startId, endId, nodes) {
   const { nodeMap, adj } = buildAdjacency(nodes);
   const visited = new Set([startId]);
@@ -133,7 +126,7 @@ export function bfs(startId, endId, nodes) {
   return buildPath(prev, endId, nodeMap);
 }
 
-// ─── 4. Bellman-Ford ─────────────────────────────────────────────────────
+
 export function bellmanFord(startId, endId, nodes) {
   const { nodeMap, adj } = buildAdjacency(nodes);
   const dist = {};
@@ -143,7 +136,7 @@ export function bellmanFord(startId, endId, nodes) {
   dist[startId] = 0;
 
   const nodeIds = nodes.map(n => n.nodeId);
-  // Relax edges |V| - 1 times
+  
   for (let i = 0; i < nodeIds.length - 1; i++) {
     let changed = false;
     for (const u of nodeIds) {
@@ -157,19 +150,19 @@ export function bellmanFord(startId, endId, nodes) {
         }
       }
     }
-    if (!changed) break; // Early exit optimisation
+    if (!changed) break; 
   }
   return buildPath(prev, endId, nodeMap);
 }
 
-// ─── 5. Floyd-Warshall ───────────────────────────────────────────────────
+
 export function floydWarshall(startId, endId, nodes) {
   const { nodeMap, adj } = buildAdjacency(nodes);
   const ids = nodes.map(n => n.nodeId);
   const idx = new Map(ids.map((id, i) => [id, i]));
   const n = ids.length;
 
-  // Initialise distance and next matrices
+  
   const dist = Array.from({ length: n }, () => new Float64Array(n).fill(Infinity));
   const next = Array.from({ length: n }, () => new Array(n).fill(-1));
 
@@ -197,7 +190,7 @@ export function floydWarshall(startId, endId, nodes) {
     }
   }
 
-  // Reconstruct path
+  
   const si = idx.get(startId);
   const ei = idx.get(endId);
   if (si === undefined || ei === undefined || next[si][ei] === -1) return [];
@@ -213,14 +206,14 @@ export function floydWarshall(startId, endId, nodes) {
   return path.filter(Boolean);
 }
 
-// ─── 6. Johnson's Algorithm ──────────────────────────────────────────────
+
 export function johnsons(startId, endId, nodes) {
   const { nodeMap, adj } = buildAdjacency(nodes);
   const ids = nodes.map(n => n.nodeId);
 
-  // Step 1: Run Bellman-Ford from a virtual source to compute potentials h(v)
+  
   const h = {};
-  for (const id of ids) h[id] = 0; // virtual source connects to all with weight 0
+  for (const id of ids) h[id] = 0; 
 
   for (let i = 0; i < ids.length - 1; i++) {
     let changed = false;
@@ -236,7 +229,7 @@ export function johnsons(startId, endId, nodes) {
     if (!changed) break;
   }
 
-  // Step 2: Reweight edges and run Dijkstra from startId
+  
   const dist = {};
   const prev = {};
   const visited = new Set();
@@ -253,7 +246,7 @@ export function johnsons(startId, endId, nodes) {
     visited.add(nodeId);
 
     for (const neighbor of adj[nodeId] || []) {
-      // Reweighted edge: w'(u,v) = w(u,v) + h(u) - h(v)
+      
       const reweighted = neighbor.distance + (h[nodeId] || 0) - (h[neighbor.nodeId] || 0);
       const alt = dist[nodeId] + reweighted;
       if (alt < dist[neighbor.nodeId]) {
@@ -267,11 +260,11 @@ export function johnsons(startId, endId, nodes) {
   return buildPath(prev, endId, nodeMap);
 }
 
-// ─── 7. Bidirectional Search ─────────────────────────────────────────────
+
 export function bidirectional(startId, endId, nodes) {
   const { nodeMap, adj } = buildAdjacency(nodes);
 
-  // Build reverse adjacency
+  
   const radj = {};
   for (const n of nodes) radj[n.nodeId] = [];
   for (const u of nodes) {
@@ -294,7 +287,7 @@ export function bidirectional(startId, endId, nodes) {
   distF[startId] = 0; queueF.push({ nodeId: startId, distance: 0 });
   distB[endId] = 0;   queueB.push({ nodeId: endId, distance: 0 });
 
-  let mu = Infinity; // Best path cost found
+  let mu = Infinity; 
   let meetNode = null;
 
   const step = (queue, dist, prev, visited, otherDist, otherVisited, adjList) => {
@@ -311,7 +304,7 @@ export function bidirectional(startId, endId, nodes) {
         prev[neighbor.nodeId] = nodeId;
         queue.push({ nodeId: neighbor.nodeId, distance: alt });
       }
-      // Check if this node has been visited from the other direction
+      
       if (otherVisited.has(neighbor.nodeId)) {
         const totalCost = alt + otherDist[neighbor.nodeId];
         if (totalCost < mu) {
@@ -329,7 +322,7 @@ export function bidirectional(startId, endId, nodes) {
     step(queueF, distF, prevF, visitedF, distB, visitedB, adj);
     step(queueB, distB, prevB, visitedB, distF, visitedF, radj);
 
-    // Early termination
+    
     if (queueF.length > 0 && queueB.length > 0) {
       const minF = queueF.reduce((m, x) => Math.min(m, x.distance), Infinity);
       const minB = queueB.reduce((m, x) => Math.min(m, x.distance), Infinity);
@@ -337,9 +330,9 @@ export function bidirectional(startId, endId, nodes) {
     }
   }
 
-  if (meetNode === null) return buildPath(prevF, endId, nodeMap); // Fallback
+  if (meetNode === null) return buildPath(prevF, endId, nodeMap); 
 
-  // Reconstruct: forward path to meetNode + backward path from meetNode
+  
   const forwardPath = [];
   let w = meetNode;
   while (w) { const nd = nodeMap.get(w); if (nd) forwardPath.unshift(nd); w = prevF[w]; }
@@ -351,7 +344,7 @@ export function bidirectional(startId, endId, nodes) {
   return [...forwardPath, ...backwardPath];
 }
 
-// ─── 8. SPFA (Shortest Path Faster Algorithm) ────────────────────────────
+
 export function spfa(startId, endId, nodes) {
   const { nodeMap, adj } = buildAdjacency(nodes);
   const dist = {};
@@ -374,7 +367,7 @@ export function spfa(startId, endId, nodes) {
         dist[neighbor.nodeId] = alt;
         prev[neighbor.nodeId] = u;
         if (!inQueue.has(neighbor.nodeId)) {
-          // SLF optimisation: if new dist < front of queue dist, push to front
+          
           if (queue.length > 0 && alt < dist[queue[0]]) {
             queue.unshift(neighbor.nodeId);
           } else {
@@ -389,7 +382,7 @@ export function spfa(startId, endId, nodes) {
   return buildPath(prev, endId, nodeMap);
 }
 
-// ─── Algorithm Registry ──────────────────────────────────────────────────
+
 export const ALGORITHMS = {
   dijkstra: {
     name: "Dijkstra",

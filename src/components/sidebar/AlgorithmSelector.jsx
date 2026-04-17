@@ -5,7 +5,7 @@ import { ALGORITHMS } from "../../utils/pathAlgorithms";
 const algorithmKeys = Object.keys(ALGORITHMS);
 
 const AlgorithmSelector = ({ selected, onChange, benchmarks = {} }) => {
-  // Find the fastest algorithm for highlighting
+  
   const hasBenchmarks = Object.keys(benchmarks).length > 0;
   let fastestKey = null;
   if (hasBenchmarks) {
@@ -87,7 +87,7 @@ const AlgorithmSelector = ({ selected, onChange, benchmarks = {} }) => {
                 )}
               </div>
 
-              {/* Timing bar visualization */}
+              {}
               {bench && hasBenchmarks && (() => {
                 const maxTime = Math.max(...Object.values(benchmarks).map(b => b.timeMs));
                 const pct = maxTime > 0 ? (bench.timeMs / maxTime) * 100 : 0;
